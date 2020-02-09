@@ -1,17 +1,19 @@
-// Create Project posts
-
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
+  // BLOG POSTS///////////////////////////
+  // BLOG POSTS///////////////////////////
+  // BLOG POSTS///////////////////////////
+
   // 1. Get path to template
-  var path = require("path")
-  const projectTemplate = path.resolve(`./src/templates/project.js`)
+  var blogPath = require("path")
+  const blogTemplate = blogPath.resolve(`./src/templates/blog.js`)
 
   // 2. Get json-data
 
-  const res = await graphql(`
+  const blogRes = await graphql(`
     query {
-      allSanityProjects {
+      allSanityPost {
         edges {
           node {
             slug {
@@ -25,29 +27,27 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
   // 3. Create new pages
 
-  res.data.allSanityProjects.edges.forEach(edge => {
+  blogRes.data.allSanityPost.edges.forEach(edge => {
     createPage({
-      component: projectTemplate,
-      path: `/${edge.node.slug.current}`,
+      component: blogTemplate,
+      path: `/blog/${edge.node.slug.current}`,
       context: {
         Slug: edge.node.slug.current,
       },
     })
   })
-}
 
-// Create Blog Posts
-
-module.exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  // PROJECT POSTS///////////////////////////
+  // PROJECT POSTS///////////////////////////
+  // PROJECT POSTS///////////////////////////
 
   // 1. Get path to template
-  var path = require("path")
-  const blogTemplate = path.resolve(`./src/templates/blog.js`)
+  var projectPath = require("path")
+  const projectTemplate = projectPath.resolve(`./src/templates/project.js`)
 
   // 2. Get json-data
 
-  const res = await graphql(`
+  const projectRes = await graphql(`
     query {
       allSanityProjects {
         edges {
@@ -63,9 +63,9 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
   // 3. Create new pages
 
-  res.data.allSanityProjects.edges.forEach(edge => {
+  projectRes.data.allSanityProjects.edges.forEach(edge => {
     createPage({
-      component: blogTemplate,
+      component: projectTemplate,
       path: `/${edge.node.slug.current}`,
       context: {
         Slug: edge.node.slug.current,

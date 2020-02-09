@@ -67,13 +67,16 @@ header {
     opacity: 0;
     transition: 0.3s;
     color: var(--main-color);
-    transition-delay: 0.45s;
+    transition-delay: 0.5s;
     text-decoration: none;
   }
 
   a:nth-child(1) {
     margin-top: auto;
     transition-delay: 0.4s;
+  }
+  a:nth-child(2) {
+    transition-delay: 0.45s;
   }
 }
 
@@ -101,6 +104,10 @@ header {
   }
 
   a:nth-child(2) {
+    transform: translate(0, 0);
+  }
+
+  a:nth-child(3) {
     transform: translate(0, 0);
   }
 }

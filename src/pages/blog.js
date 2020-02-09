@@ -11,7 +11,7 @@ import Img from "gatsby-image"
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-        allSanityPost {
+      allSanityPost {
         edges {
           node {
             title
@@ -41,7 +41,7 @@ const IndexPage = () => {
         <ol>
           {data.allSanityPost.edges.map(edge => {
             return (
-              <Link to={edge.node.slug.current}>
+              <Link to={`/blog/${edge.node.slug.current}`}>
                 <li>
                   <h2>{edge.node.title}</h2>
                   <p></p>

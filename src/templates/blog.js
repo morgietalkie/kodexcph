@@ -9,7 +9,7 @@ import BlockContent from "@sanity/block-content-to-react"
 
 export const query = graphql`
   query($Slug: String) {
-    sanityProjects(slug: { current: { eq: $Slug } }) {
+    sanityPost(slug: { current: { eq: $Slug } }) {
       title
       _rawBody
       body {
@@ -31,13 +31,13 @@ export const query = graphql`
 const BLog = props => {
   return (
     <Layout>
-      <SEO title={props.data.sanityProjects.title} />
+      <SEO title={props.data.sanityPost.title} />
       <section id="blogPost">
-        <h1>{props.data.sanityProjects.title}</h1>
-        <Img fluid={props.data.sanityProjects.mainImage.asset.fluid}></Img>
+        <h1>{props.data.sanityPost.title}</h1>
+        <Img fluid={props.data.sanityPost.mainImage.asset.fluid}></Img>
         <div>
           <BlockContent
-            blocks={props.data.sanityProjects._rawBody}
+            blocks={props.data.sanityPost._rawBody}
             projectId="j7i4hfvy"
             dataset="production"
           />
