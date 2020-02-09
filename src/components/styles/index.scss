@@ -1,0 +1,31 @@
+#index {
+  width: 90vw;
+  margin: auto;
+  h1,
+  h2,
+  p {
+    text-align: center;
+    color: var(--main-color);
+    font-family: var(--main-font);
+    text-transform: uppercase;
+  }
+
+  ol {
+    margin: 0;
+  }
+  li {
+    list-style: none;
+    margin-bottom: 80px;
+  }
+  a {
+    text-decoration: none;
+    width: 100%;
+    height: auto;
+  }
+
+  img {
+    margin: 0;
+    padding: 0;
+    margin: auto;
+  }
+}
