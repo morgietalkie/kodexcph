@@ -15,6 +15,7 @@ const Header = ({ siteTitle }) => (
     </div>
     <div class="menu" onClick={openMenu}>
       <Link to="/">Projects</Link>
+      <Link to="blog">Blog</Link>
       <Link to="about">About</Link>
     </div>
   </header>
