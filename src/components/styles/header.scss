@@ -34,7 +34,7 @@ header {
     width: 20px;
 
     margin: 2px;
-    background-color: var(--main-color);
+    background-color: var(--dark-color);
     transition: 0.4s;
     transform-origin: 9px;
     transition-timing-function: cubic-bezier(1, 0.2, 0.2, 1);
@@ -46,7 +46,7 @@ header {
   top: 0;
   height: 100vh;
   width: 100vw;
-  background: var(--main-bg-color);
+  background: var(--light-color);
   right: -100vw;
   z-index: 0;
   transition: 0.4s;
@@ -61,14 +61,15 @@ header {
     font-size: 50px;
     margin-right: 40px;
     transform: translate(40px, 0);
+    font-weight: 500;
 
     line-height: 2em;
-    font-family: Arial, Helvetica, sans-serif;
     opacity: 0;
     transition: 0.3s;
-    color: var(--main-color);
+    color: var(--dark-color);
     transition-delay: 0.5s;
     text-decoration: none;
+    font-family: var(--secondary-font);
   }
 
   a:nth-child(1) {
