@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import Logo from "../images/assets/logo.svg"
 // import RewriteMarkdown from "../components/RewriteMarkdown"
 
 const IndexPage = () => {
@@ -35,15 +36,16 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <section id="index">
+        <Logo />
         <h1>Kodex</h1>
-        <p>Modern webistes with a nordic touch</p>
+        <h2>Modern webistes with a nordic touch</h2>
 
         <ol>
           {data.allSanityProjects.edges.map(edge => {
             return (
               <Link to={edge.node.slug.current}>
                 <li>
-                  <h2>{edge.node.title}</h2>
+                  <h3>{edge.node.title}</h3>
                   <p></p>
                   <Img fluid={edge.node.mainImage.asset.fluid} />
                 </li>

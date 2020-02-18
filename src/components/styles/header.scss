@@ -1,44 +1,51 @@
 header {
   background: white;
-  margin-bottom: 2em;
   display: flex;
-  position: sticky;
-  top: 0;
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
   z-index: 100;
-}
-
-#logo {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  margin-right: auto;
-  .gatsby-image-wrapper {
-    width: 20px;
-  }
-}
-
-#burger_menu {
-  z-index: 101;
-  margin-left: auto;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
 
-  div {
-    pointer-events: none;
-    height: 2px;
-    width: 20px;
-
-    margin: 2px;
-    background-color: var(--dark-color);
-    transition: 0.4s;
-    transform-origin: 9px;
-    transition-timing-function: cubic-bezier(1, 0.2, 0.2, 1);
+  a {
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+    justify-content: space-between;
+    text-align: center;
+    text-decoration: none;
+    color: var(--dark-color);
+    font-family: var(--secondary-font);
+    font-size: 0.8em;
+    margin: 0 40px;
   }
+
+  svg {
+    width: 100%;
+  }
+}
+
+.contact-button {
+  position: fixed;
+  width: auto;
+  padding: 15px;
+  border-radius: 100px;
+  top: 10px;
+  right: 10px;
+  background: white;
+  line-height: 0;
+  box-shadow: #f0f0f1 0px 0px 3px 1px;
+}
+
+.close-button {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 100px;
+  top: 20px;
+  right: 20px;
+  line-height: 0;
 }
 
 .menu {
@@ -55,30 +62,6 @@ header {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
-
-  a {
-    margin-left: auto;
-    font-size: 50px;
-    margin-right: 40px;
-    transform: translate(40px, 0);
-    font-weight: 500;
-
-    line-height: 2em;
-    opacity: 0;
-    transition: 0.3s;
-    color: var(--dark-color);
-    transition-delay: 0.5s;
-    text-decoration: none;
-    font-family: var(--secondary-font);
-  }
-
-  a:nth-child(1) {
-    margin-top: auto;
-    transition-delay: 0.4s;
-  }
-  a:nth-child(2) {
-    transition-delay: 0.45s;
-  }
 }
 
 .menu_slide {
@@ -88,12 +71,6 @@ header {
 .open_menu {
   div {
     margin: 0px !important;
-  }
-  div:nth-child(1) {
-    transform: rotate(45deg);
-  }
-  div:nth-child(2) {
-    transform: rotate(-45deg);
   }
 
   a {
