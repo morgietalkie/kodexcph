@@ -60,18 +60,20 @@ strong {
   font-weight: inherit;
   font-weight: bolder;
   font-size: 16px;
-  font-family: merriweather;
+  font-family: var(--primary-font);
 }
 
 em {
   font-size: 16;
-  font-family: merriweather;
+  font-family: var(--primary-font);
   font-style: italic;
 }
 dfn {
   font-style: italic;
 }
 h1 {
+  font-family: "Merriweather", serif;
+
   font-size: 40px;
   margin: 0.67em 0;
 }
@@ -457,7 +459,7 @@ blockquote {
   margin-bottom: 1.45rem;
   color: var(--semi-dark);
   font-size: 20px;
-  font-family: merriweather;
+  font-family: var(--primary-font);
   font-style: italic;
   text-align: center;
 }

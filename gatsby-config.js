@@ -46,11 +46,16 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-web-font-loader",
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
-        google: {
-          families: ["Montserrat Sans", "Merriweather Serif"],
-        },
+        fonts: [
+          {
+            family: `Merriweather`,
+          },
+          {
+            family: `Montserrat`,
+          },
+        ],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

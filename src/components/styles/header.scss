@@ -19,16 +19,16 @@ header {
     font-family: var(--secondary-font);
     font-size: 0.8em;
     margin: 0 40px;
-  }
 
-  svg {
-    width: 100%;
+    svg {
+      width: 100%;
+    }
   }
 }
 
 .contact-button {
   position: fixed;
-  width: fit-content;
+  width: auto;
   padding: 15px;
   border-radius: 100px;
   top: 10px;
