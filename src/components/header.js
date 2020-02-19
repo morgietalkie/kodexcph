@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Contactform from "../components/contactform"
 import ProjectIcon from "../images/assets/projects.svg"
 import AboutIcon from "../images/assets/about.svg"
 import BlogIcon from "../images/assets/blog.svg"
@@ -25,10 +26,12 @@ const Header = ({ siteTitle }) => (
       <ContactIcon />
     </div>
 
-    <div class="menu" onClick={openMenu}>
-      <div class="close-button">
+    <div class="menu">
+      <div class="close-button" onClick={openMenu}>
         <CloseIcon />
       </div>
+
+      <Contactform />
     </div>
   </header>
 )

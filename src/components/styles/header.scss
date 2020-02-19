@@ -49,6 +49,7 @@ header {
 }
 
 .menu {
+  overflow: scroll;
   position: fixed;
   top: 0;
   height: 100vh;
@@ -69,10 +70,6 @@ header {
 }
 
 .open_menu {
-  div {
-    margin: 0px !important;
-  }
-
   a {
     opacity: 1;
   }

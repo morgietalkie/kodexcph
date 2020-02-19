@@ -7,6 +7,9 @@ var plugins = [{
     },{
       plugin: require('/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/node_modules/gatsby-source-sanity/gatsby-ssr'),
       options: {"plugins":[],"apiURL":"http://localhost:3333","projectId":"j7i4hfvy","dataset":"production"},
+    },{
+      plugin: require('/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/node_modules/gatsby-plugin-prefetch-google-fonts/gatsby-ssr'),
+      options: {"plugins":[],"fonts":[{"family":"Merriweather","variants":["300","300i","400","400i","700","700i","900","900i"]},{"family":"Montserrat","variants":["100","100i","200","200i","300","300i","400","400i","500","500i","600","600i","700","700i","800","800i","900","900i"]}]},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [

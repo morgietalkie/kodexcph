@@ -72,10 +72,9 @@ dfn {
   font-style: italic;
 }
 h1 {
-  font-family: "Merriweather", serif;
-
   font-size: 40px;
   margin: 0.67em 0;
+  font-weight: bold;
 }
 mark {
   background-color: #ff0;
@@ -267,7 +266,7 @@ h2 {
   font-weight: 600;
   text-rendering: optimizeLegibility;
   font-size: 30px;
-  line-height: 1.1;
+  line-height: 1.4;
 }
 h3 {
   margin-left: 0;
@@ -400,6 +399,7 @@ p {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
+  line-height: 28px;
 }
 figure {
   margin-left: 0;

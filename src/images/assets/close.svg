@@ -1,3 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="20.953" height="20.953" viewBox="0 0 20.953 20.953">
-  <path id="Icon_ionic-md-close" data-name="Icon ionic-md-close" d="M28.477,9.619l-2.1-2.1L18,15.9,9.619,7.523l-2.1,2.1L15.9,18,7.523,26.381l2.1,2.1L18,20.1l8.381,8.381,2.1-2.1L20.1,18Z" transform="translate(-7.523 -7.523)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="16.742" height="16.742" viewBox="0 0 16.742 16.742">
+  <g id="Group_44" data-name="Group 44" transform="translate(1459.783 1187.783)">
+    <line id="Line_7" data-name="Line 7" x2="22.876" transform="translate(-1459.5 -1171.324) rotate(-45)" fill="none" stroke="#707070" stroke-width="0.8"/>
+    <line id="Line_8" data-name="Line 8" x2="22.876" transform="translate(-1459.5 -1187.5) rotate(45)" fill="none" stroke="#707070" stroke-width="0.8"/>
+  </g>
 </svg>
