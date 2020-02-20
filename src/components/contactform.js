@@ -20,11 +20,13 @@ const Contactform = ({ siteTitle }) => (
     </p>
 
     <form
-      method="post"
       name="contact-test"
+      method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
+      <input type="hidden" name="form-name" value="Contact Form" />
+
       <label>
         Name
         <input type="text" name="name" id="name" required />
@@ -37,7 +39,7 @@ const Contactform = ({ siteTitle }) => (
         Message
         <textarea name="message" id="message" rows="5" />
       </label>
-      <button>Send</button>
+      <button type="submit">Send</button>
     </form>
   </div>
 )
