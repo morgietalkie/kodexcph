@@ -26,6 +26,12 @@ header {
   }
 }
 
+.activeLink {
+  color: var(--link-color);
+  svg > path {
+    fill: var(--link-color);
+  }
+}
 .contact-button {
   position: fixed;
   width: auto;

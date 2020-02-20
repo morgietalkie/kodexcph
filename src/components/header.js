@@ -10,14 +10,14 @@ import CloseIcon from "../images/assets/close.svg"
 
 const Header = ({ siteTitle }) => (
   <header>
-    <Link to="/">
+    <Link to="/" activeClassName="activeLink">
       <ProjectIcon /> Projects
     </Link>
-    <Link to="about">
+    <Link to="about" activeClassName="activeLink">
       <AboutIcon />
       About
     </Link>
-    <Link to="blog">
+    <Link to="blog" activeClassName="activeLink">
       <BlogIcon />
       Blog
     </Link>
