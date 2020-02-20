@@ -28,15 +28,11 @@ const Contactform = ({ siteTitle }) => (
     >
       <label>
         Name
-        <input type="text" name="name" id="name" />
+        <input type="text" name="name" id="name" required />
       </label>
       <label>
         Email
-        <input type="email" name="email" id="email" />
-      </label>
-      <label>
-        Subject
-        <input type="text" name="subject" id="subject" />
+        <input type="email" name="email" id="email" required />
       </label>
       <label>
         Message
