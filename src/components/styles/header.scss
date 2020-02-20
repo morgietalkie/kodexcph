@@ -24,6 +24,9 @@ header {
       width: 100%;
     }
   }
+  #logo {
+    display: none;
+  }
 }
 
 .activeLink {
@@ -42,6 +45,10 @@ header {
   background: white;
   line-height: 0;
   box-shadow: #f0f0f1 0px 0px 3px 1px;
+
+  span {
+    display: none;
+  }
 }
 
 .close-button {
@@ -49,8 +56,8 @@ header {
   width: 15px;
   height: 15px;
   border-radius: 100px;
-  top: 20px;
-  right: 20px;
+  top: 25px;
+  right: 25px;
   line-height: 0;
   z-index: 101;
 }
@@ -91,5 +98,62 @@ header {
 
   a:nth-child(3) {
     transform: translate(0, 0);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  header {
+    position: sticky;
+    bottom: initial;
+    top: 0;
+    justify-content: flex-end;
+
+    a {
+      font-size: 16px;
+      justify-content: center;
+      margin: 0 20px;
+
+      svg {
+        display: none;
+      }
+    }
+
+    #logo {
+      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-right: auto;
+      margin-left: 40px;
+
+      svg {
+        display: block;
+      }
+    }
+  }
+
+  .contact-button {
+    position: relative;
+    width: auto;
+    padding: none;
+    border-radius: 100px;
+    top: initial;
+    right: initial;
+    background: none;
+    line-height: 0;
+    box-shadow: none;
+    border: none;
+
+    padding: 8px 0;
+    margin: 0 20px;
+    margin-right: 40px;
+
+    span {
+      display: flex;
+    }
+
+    svg {
+      display: none;
+    }
   }
 }
