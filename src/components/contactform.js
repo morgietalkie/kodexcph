@@ -21,7 +21,7 @@ const Contactform = ({ siteTitle }) => (
 
     <form
       method="post"
-      name="contact"
+      name="contact-test"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
