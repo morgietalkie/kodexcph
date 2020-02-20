@@ -19,25 +19,26 @@ const Contactform = ({ siteTitle }) => (
       inventore veritatis et quasi{" "}
     </p>
 
-    <form
-      name="contact-test"
-      method="post"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-    >
-      <label>
-        Name
-        <input type="text" name="name" />
-      </label>
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Message
-        <textarea name="message" />
-      </label>
-      <button>Send</button>
+    <form name="contact" method="POST" data-netlify="true">
+      <p>
+        <label>
+          Your Name: <input type="text" name="name" />
+        </label>
+      </p>
+      <p>
+        <label>
+          Your Email: <input type="email" name="email" />
+        </label>
+      </p>
+
+      <p>
+        <label>
+          Message: <textarea name="message"></textarea>
+        </label>
+      </p>
+      <p>
+        <button type="submit">Send</button>
+      </p>
     </form>
   </div>
 )
