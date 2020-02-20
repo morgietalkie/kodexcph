@@ -21,25 +21,23 @@ const Contactform = ({ siteTitle }) => (
 
     <form
       name="contact-test"
-      method="POST"
+      method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
-      <input type="hidden" name="form-name" value="Contact Form" />
-
       <label>
         Name
-        <input type="text" name="name" id="name" required />
+        <input type="text" name="name" />
       </label>
       <label>
         Email
-        <input type="email" name="email" id="email" required />
+        <input type="email" name="email" />
       </label>
       <label>
         Message
-        <textarea name="message" id="message" rows="5" />
+        <textarea name="message" />
       </label>
-      <button type="submit">Send</button>
+      <button>Send</button>
     </form>
   </div>
 )
