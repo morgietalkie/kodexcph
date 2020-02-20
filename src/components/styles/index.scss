@@ -54,3 +54,16 @@
     margin: auto;
   }
 }
+
+@media only screen and (min-width: 1024px) {
+  #index {
+    h3 {
+      position: absolute;
+      opacity: 0;
+    }
+    .gatsby-image-wrapper {
+      width: 200px;
+      margin: auto;
+    }
+  }
+}
