@@ -33,8 +33,9 @@ const Project = props => {
     <Layout>
       <SEO title={props.data.sanityProjects.title} />
       <section id="projectPost">
-        <h1>{props.data.sanityProjects.title}</h1>
         <Img fluid={props.data.sanityProjects.mainImage.asset.fluid}></Img>
+
+        <h1>{props.data.sanityProjects.title}</h1>
         <div>
           <BlockContent
             blocks={props.data.sanityProjects._rawBody}
