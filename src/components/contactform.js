@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import React from "react"
 
 import Logo from "../images/assets/logo.svg"
@@ -9,8 +8,8 @@ const Contactform = ({ siteTitle }) => (
 
     <span>Kodex</span>
 
-    <a href="+45 50 99 99 95">+45 50 99 99 95</a>
-    <a href="contact@kodexcph.com">contact@kodexcph.com</a>
+    <a href="tel:+45 50 99 99 95">+45 50 99 99 95</a>
+    <a href="mailto:contact@kodexcph.com">contact@kodexcph.com</a>
 
     <h2>Contact us</h2>
 
@@ -38,7 +37,7 @@ const Contactform = ({ siteTitle }) => (
         Message
         <textarea name="message" id="message" rows="5" />
       </label>
-      <button type="submit">Send</button>
+      <button>Send</button>
     </form>
   </div>
 )
