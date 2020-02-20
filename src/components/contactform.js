@@ -16,18 +16,18 @@ const Contactform = ({ siteTitle }) => (
     <p>
       Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
       doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-      inventore veritatis et quasi{" "}
+      inventore veritatis et quasi
     </p>
 
     <form name="contacttest" method="POST" data-netlify="true">
       <p>
         <label>
-          Your Name: <input type="text" name="name" />
+          Name: <input type="text" name="name" />
         </label>
       </p>
       <p>
         <label>
-          Your Email: <input type="email" name="email" />
+          Email: <input type="email" name="email" />
         </label>
       </p>
 
