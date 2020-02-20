@@ -19,7 +19,7 @@ const Contactform = ({ siteTitle }) => (
       inventore veritatis et quasi
     </p>
 
-    <form name="contacttest" method="POST" data-netlify="true">
+    <form name="contact" method="POST" data-netlify="true">
       <p>
         <label>
           Name: <input type="text" name="name" />
