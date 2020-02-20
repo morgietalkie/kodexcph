@@ -27,7 +27,7 @@ const Contactform = ({ siteTitle }) => (
       data-netlify-honeypot="bot-field"
     >
       <input name="name" type="text" placeholder="Your name*" />
-      <input name="email" type="email" placeholder="Your E-mail*" />
+      <input name="email" type="text" placeholder="Your E-mail*" />
       <textarea name="message" placeholder="Message" />
 
       <button>Send</button>
