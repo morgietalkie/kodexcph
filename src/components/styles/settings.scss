@@ -11,3 +11,14 @@
 svg {
   fill: var(--dark-color);
 }
+
+.animation--fade-up {
+  opacity: 0;
+  transform: translate(0, 15px);
+}
+
+.animation--fade-up.animation--visible {
+  opacity: 1;
+  transition: 1s;
+  transform: translate(0, 0);
+}

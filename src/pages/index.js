@@ -44,10 +44,13 @@ const IndexPage = () => {
           {data.allSanityProjects.edges.map(edge => {
             return (
               <Link to={edge.node.slug.current}>
-                <li>
+                <li className="animation animation--fade-up">
                   <h3>{edge.node.title}</h3>
                   <p></p>
-                  <Img fluid={edge.node.mainImage.asset.fluid} />
+                  <Img
+                    fluid={edge.node.mainImage.asset.fluid}
+                    onLoad={initiateAnimations}
+                  />
                 </li>
               </Link>
             )
@@ -59,3 +62,58 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+// animations
+
+function initiateAnimations() {
+  if (window.innerWidth > 480) {
+    // callback function to do animations
+    const scrollImations = (entries, observer) => {
+      entries.forEach(entry => {
+        // only do animation if the element is fully on screen
+        if (entry.isIntersecting && entry.intersectionRatio >= 0) {
+          // entry.target.classList.add("animation--visible")
+          entry.target.style.opacity = entry.intersectionRatio
+        }
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.9) {
+          entry.target.style.opacity = "0"
+        }
+      })
+    }
+
+    // create the observer
+    const options = {
+      threshold: 0.2,
+    }
+    const observer = new IntersectionObserver(scrollImations, options)
+
+    // target the elements to be observed
+    const animations = document.querySelectorAll(".animation")
+    animations.forEach(animation => {
+      observer.observe(animation)
+    })
+  } else {
+    // callback function to do animations
+    const scrollImations = (entries, observer) => {
+      entries.forEach(entry => {
+        // only do animation if the element is fully on screen
+        if (entry.isIntersecting && entry.intersectionRatio >= 0) {
+          entry.target.classList.add("animation--visible")
+        } else {
+        }
+      })
+    }
+
+    // create the observer
+    const options = {
+      threshold: 0.2,
+    }
+    const observer = new IntersectionObserver(scrollImations, options)
+
+    // target the elements to be observed
+    const animations = document.querySelectorAll(".animation")
+    animations.forEach(animation => {
+      observer.observe(animation)
+    })
+  }
+}
