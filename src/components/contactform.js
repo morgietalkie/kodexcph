@@ -3,7 +3,7 @@ import React from "react"
 export default () => (
   <form
     className="contact_form"
-    name="imdone"
+    name="contact-form"
     method="post"
     action="/mail-send"
     data-netlify="true"
