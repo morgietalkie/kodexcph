@@ -5,6 +5,7 @@ export default () => (
     className="contact_form"
     name="imdone"
     method="post"
+    action="/mail-send"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
   >

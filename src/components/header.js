@@ -44,9 +44,9 @@ const Header = ({ siteTitle }) => (
         <h2>Contact us</h2>
 
         <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi
+          We are open to making new acquaintances! Interested in getting to know
+          us a bit better or just want to come over for a coffee? <br />
+          <strong>Get in touch</strong> 👇
         </p>
 
         <Contactform />

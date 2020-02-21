@@ -11,6 +11,7 @@ exports.components = {
   "component---src-pages-404-js": hot(preferDefault(require("/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/src/pages/404.js"))),
   "component---src-pages-about-js": hot(preferDefault(require("/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/src/pages/about.js"))),
   "component---src-pages-blog-js": hot(preferDefault(require("/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/src/pages/blog.js"))),
-  "component---src-pages-index-js": hot(preferDefault(require("/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/src/pages/index.js")))
+  "component---src-pages-index-js": hot(preferDefault(require("/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/src/pages/index.js"))),
+  "component---src-pages-mail-send-js": hot(preferDefault(require("/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/src/pages/mail-send.js")))
 }
 
