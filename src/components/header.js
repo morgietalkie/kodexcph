@@ -33,26 +33,28 @@ const Header = ({ siteTitle }) => (
     </button>
 
     <div class="menu">
-      {/* <Logo />
+      <div id="scrollable">
+        <Logo />
 
-      <span>Kodex</span>
+        <span>Kodex</span>
 
-      <a href="tel:+45 50 99 99 95">+45 50 99 99 95</a>
-      <a href="mailto:contact@kodexcph.com">contact@kodexcph.com</a>
+        <a href="tel:+45 50 99 99 95">+45 50 99 99 95</a>
+        <a href="mailto:contact@kodexcph.com">contact@kodexcph.com</a>
 
-      <h2>Contact us</h2>
+        <h2>Contact us</h2>
 
-      <p>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
-        illo inventore veritatis et quasi
-      </p> */}
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi
+        </p>
 
-      <div class="close-button" onClick={openMenu}>
-        <CloseIcon />
+        <Contactform />
+
+        <div class="close-button" onClick={openMenu}>
+          <CloseIcon />
+        </div>
       </div>
-
-      <Contactform />
     </div>
   </header>
 )
