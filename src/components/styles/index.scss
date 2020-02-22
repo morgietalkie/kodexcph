@@ -62,11 +62,17 @@
       opacity: 0;
     }
     .gatsby-image-wrapper {
-      width: 400px;
+      width: 100%;
       margin: auto;
       transition: 0.4s;
 
       transition-timing-function: cubic-bezier(1, 0.2, 0.2, 1);
+    }
+
+    li {
+      margin: auto;
+      width: 400px;
+      margin-bottom: 100px;
     }
   }
 }

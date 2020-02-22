@@ -71,19 +71,18 @@ function initiateAnimations() {
     const scrollImations = (entries, observer) => {
       entries.forEach(entry => {
         // only do animation if the element is fully on screen
-        if (entry.isIntersecting && entry.intersectionRatio >= 0) {
-          // entry.target.classList.add("animation--visible")
-          entry.target.style.opacity = entry.intersectionRatio
-        }
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.9) {
-          entry.target.style.opacity = "0"
+        if (entry.intersectionRatio != 1) {
+          entry.target.style.width = "500px"
+        } else {
+          entry.target.classList.add("animation--visible")
+          entry.target.style.width = "580px"
         }
       })
     }
 
     // create the observer
     const options = {
-      threshold: 0.2,
+      threshold: 1,
     }
     const observer = new IntersectionObserver(scrollImations, options)
 
