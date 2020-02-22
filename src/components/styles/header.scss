@@ -73,7 +73,7 @@ header {
   }
 
   svg {
-    height: 50px;
+    height: 40px;
     width: auto;
     margin: auto;
     margin-top: 80px;
@@ -91,8 +91,10 @@ header {
     text-align: center;
     font-family: var(--secondary-font);
     font-weight: bold;
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 30px;
+    margin-bottom: 30px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
   }
 
   display: flex;

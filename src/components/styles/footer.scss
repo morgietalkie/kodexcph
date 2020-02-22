@@ -1,10 +1,35 @@
 footer {
-  height: 400px;
+  height: 800px;
+  width: 100vw;
   background: var(--dark-color);
 
+  .logo_wrapper {
+    background: var(--light-color);
+    width: fit-content;
+    position: relative;
+    height: 100px;
+    width: 100px;
+    top: 20px;
+    left: 20px;
+
+    div {
+      position: relative;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  svg {
+    width: 100%;
+    margin: auto;
+  }
+
   h4 {
-    color: var(--light-color);
+    color: var(--dark-color);
     text-align: center;
-    padding-top: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 3px;
   }
 }
