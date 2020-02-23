@@ -102,7 +102,7 @@ function initiateAnimations() {
   })
 }
 
-window.addEventListener("scroll", scrollFunctionImage)
+document.body.addEventListener("scroll", scrollFunctionImage)
 
 function scrollFunctionImage() {
   if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
