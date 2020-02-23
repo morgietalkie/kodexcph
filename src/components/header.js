@@ -1,6 +1,5 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
 import Contactform from "../components/contactform"
 import ProjectIcon from "../images/assets/projects.svg"
 import AboutIcon from "../images/assets/about.svg"
@@ -8,66 +7,119 @@ import BlogIcon from "../images/assets/blog.svg"
 import ContactIcon from "../images/assets/contact.svg"
 import CloseIcon from "../images/assets/close.svg"
 import Logo from "../images/assets/logo.svg"
+import React, { Component } from "react"
 
-const Header = ({ siteTitle }) => (
-  <header>
-    <Link to="/" id="logo">
-      <Logo />
-    </Link>
+export default class Navbar extends Component {
+  constructor(props) {
+    super(props)
 
-    <Link to="/" activeClassName="activeLink">
-      <ProjectIcon /> Projects
-    </Link>
-    <Link to="about" activeClassName="activeLink">
-      <AboutIcon />
-      About
-    </Link>
-    <Link to="blog" activeClassName="activeLink">
-      <BlogIcon />
-      Blog
-    </Link>
+    this.state = {
+      prevScrollpos: window.pageYOffset,
+      visible: true,
+    }
+  }
 
-    <button className="contact-button" onClick={openMenu}>
-      <ContactIcon />
-      <span>Contact</span>
-    </button>
+  // Adds an event listener when the component is mount.
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll)
+  }
 
-    <div className="menu">
-      <div id="scrollable">
-        <Logo />
+  // Remove the event listener when the component is unmount.
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll)
+  }
 
-        <span>Kodex</span>
+  // Hide or show the menu.
+  handleScroll = () => {
+    const { prevScrollpos } = this.state
 
-        <a href="tel:+45 50 99 99 95">+45 50 99 99 95</a>
-        <a href="mailto:contact@kodexcph.com">contact@kodexcph.com</a>
+    const currentScrollPos = window.pageYOffset
+    const visible = prevScrollpos > currentScrollPos
 
-        <h2>Contact us</h2>
+    this.setState({
+      prevScrollpos: currentScrollPos,
+      visible,
+    })
 
-        <p>
-          We are open to making new acquaintances! Interested in getting to know
-          us a bit better or just want to come over for a coffee? <br />
-          <strong>Get in touch</strong> 👇
-        </p>
+    if (window.innerWidth > 1023) {
+      if (
+        document.body.scrollTop > 1 ||
+        document.documentElement.scrollTop > 1
+      ) {
+        document.querySelector("header").style.backgroundColor = "#ffffff"
+      } else {
+        document.querySelector("header").style.backgroundColor = "#ffffff00"
+      }
+    }
+  }
 
-        <Contactform />
+  render() {
+    return (
+      <header>
+        <Link to="/" id="logo">
+          <Logo />
+        </Link>
 
-        <div className="close-button" onClick={openMenu}>
-          <CloseIcon />
+        <Link to="/" activeClassName="activeLink">
+          <ProjectIcon /> Projects
+        </Link>
+        <Link to="about" activeClassName="activeLink">
+          <AboutIcon />
+          About
+        </Link>
+        <Link to="blog" activeClassName="activeLink">
+          <BlogIcon />
+          Blog
+        </Link>
+
+        <button className="contact-button" onClick={openMenu}>
+          <ContactIcon />
+          <span>Contact</span>
+        </button>
+
+        <div className="menu">
+          <div id="scrollable">
+            <Logo />
+
+            <span>Kodex</span>
+
+            <a href="tel:+45 50 99 99 95">+45 50 99 99 95</a>
+            <a href="mailto:contact@kodexcph.com">contact@kodexcph.com</a>
+
+            <h2>Contact us</h2>
+
+            <p>
+              We are open to making new acquaintances! Interested in getting to
+              know us a bit better or just want to come over for a coffee?{" "}
+              <br />
+              <strong>Get in touch</strong> 👇
+            </p>
+
+            <Contactform />
+
+            <div className="close-button" onClick={openMenu}>
+              <CloseIcon />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+      </header>
+    )
+  }
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
+// const Header = ({ siteTitle }) => (
 
-export default Header
+// )
+
+// export default Header
+
+// Header.propTypes = {
+//   siteTitle: PropTypes.string,
+// }
+
+// Header.defaultProps = {
+//   siteTitle: ``,
+// }
 
 function openMenu(e) {
   document.querySelector(".menu").classList.toggle("open_menu")
@@ -75,14 +127,14 @@ function openMenu(e) {
   console.log(e.target.children[0])
 }
 
-document.body.addEventListener("scroll", scrollFunction)
+// document.body.addEventListener("scroll", scrollFunction)
 
-function scrollFunction() {
-  if (window.innerWidth > 1023) {
-    if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
-      document.querySelector("header").style.backgroundColor = "#ffffff"
-    } else {
-      document.querySelector("header").style.backgroundColor = "#ffffff00"
-    }
-  }
-}
+// function scrollFunction() {
+//   if (window.innerWidth > 1023) {
+//     if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+//       document.querySelector("header").style.backgroundColor = "#ffffff"
+//     } else {
+//       document.querySelector("header").style.backgroundColor = "#ffffff00"
+//     }
+//   }
+// }
