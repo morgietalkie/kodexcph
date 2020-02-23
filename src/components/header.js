@@ -75,9 +75,7 @@ function openMenu(e) {
   console.log(e.target.children[0])
 }
 
-window.onscroll = function() {
-  scrollFunction()
-}
+window.addEventListener("scroll", scrollFunction)
 
 function scrollFunction() {
   if (window.innerWidth > 1023) {
