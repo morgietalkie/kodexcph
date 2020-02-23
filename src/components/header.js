@@ -9,16 +9,6 @@ import ContactIcon from "../images/assets/contact.svg"
 import CloseIcon from "../images/assets/close.svg"
 import Logo from "../images/assets/logo.svg"
 
-// Requiring function causes error during builds
-// as the code tries to reference window
-const module = require("module") // Error
-
-// Wrap the require in check for window
-if (typeof window !== `undefined`) {
-  const module = require("module")
-  console.log(module)
-}
-
 const Header = ({ siteTitle }) => (
   <header>
     <Link to="/" id="logo">
