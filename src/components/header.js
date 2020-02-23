@@ -27,12 +27,12 @@ const Header = ({ siteTitle }) => (
       Blog
     </Link>
 
-    <button class="contact-button" onClick={openMenu}>
+    <button className="contact-button" onClick={openMenu}>
       <ContactIcon />
       <span>Contact</span>
     </button>
 
-    <div class="menu">
+    <div className="menu">
       <div id="scrollable">
         <Logo />
 
@@ -51,7 +51,7 @@ const Header = ({ siteTitle }) => (
 
         <Contactform />
 
-        <div class="close-button" onClick={openMenu}>
+        <div className="close-button" onClick={openMenu}>
           <CloseIcon />
         </div>
       </div>
@@ -73,4 +73,18 @@ function openMenu(e) {
   document.querySelector(".menu").classList.toggle("open_menu")
   document.querySelector(".menu").classList.toggle("menu_slide")
   console.log(e.target.children[0])
+}
+
+window.onscroll = function() {
+  scrollFunction()
+}
+
+function scrollFunction() {
+  if (window.innerWidth > 1023) {
+    if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+      document.querySelector("header").style.backgroundColor = "#ffffff"
+    } else {
+      document.querySelector("header").style.backgroundColor = "#ffffff00"
+    }
+  }
 }

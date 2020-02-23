@@ -1,12 +1,12 @@
 header {
-  background: white;
+  background: #ffffff;
   display: flex;
   position: fixed;
   width: 100vw;
   bottom: 0;
   z-index: 100;
   justify-content: center;
-
+  transition: 0.2s;
   a {
     padding: 8px 0;
     display: flex;
@@ -169,6 +169,8 @@ header {
 
 @media only screen and (min-width: 1024px) {
   header {
+    background: #ffffff00;
+
     position: sticky;
     bottom: initial;
     top: 0;

@@ -33,19 +33,19 @@ const IndexPage = () => {
   `)
 
   return (
-    <Layout>
+    <Layout className="fadeOut">
       <SEO title="Home" />
       <section id="index">
-        <Logo />
-        <h1>Kodex</h1>
-        <h2>Modern webistes with a nordic touch</h2>
+        <Logo className="fadeOut" />
+        <h1 className="fadeOut">Kodex</h1>
+        <h2 className="fadeOut">Modern webistes with a nordic touch</h2>
 
         <ol>
           {data.allSanityProjects.edges.map(edge => {
             return (
-              <Link to={edge.node.slug.current}>
-                <li className="animation animation--fade-up">
-                  <h3>{edge.node.title}</h3>
+              <Link to={edge.node.slug.current} onClick={handleClick}>
+                <li className="animation fadeOut animation--fade-up fadeOutOnClick">
+                  <h3 className="fadeOut">{edge.node.title}</h3>
                   <p></p>
                   <Img
                     fluid={edge.node.mainImage.asset.fluid}
@@ -66,15 +66,15 @@ export default IndexPage
 // animations
 
 function initiateAnimations() {
-  if (window.innerWidth > 480) {
+  if (window.innerWidth > 1024) {
     // callback function to do animations
     const scrollImations = (entries, observer) => {
       entries.forEach(entry => {
         // only do animation if the element is fully on screen
-        if (entry.intersectionRatio != 1) {
+        if (entry.intersectionRatio !== 1) {
           entry.target.style.width = "500px"
         } else {
-          entry.target.classList.add("animation--visible")
+          entry.target.style.opacity = "1"
           entry.target.style.width = "580px"
         }
       })
@@ -115,4 +115,22 @@ function initiateAnimations() {
       observer.observe(animation)
     })
   }
+}
+
+function handleClick(e) {
+  e.preventDefault()
+  console.log(e.currentTarget)
+  e.target.style.opacity = "0"
+
+  let ElementsToFadeOut = document.querySelectorAll(".fadeOut")
+
+  ElementsToFadeOut.forEach(element => {
+    element.style.opacity = "0"
+  })
+
+  let LoadURL = e.currentTarget
+
+  setTimeout(() => {
+    window.location.href = LoadURL
+  }, 200)
 }
