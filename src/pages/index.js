@@ -33,19 +33,19 @@ const IndexPage = () => {
   `)
 
   return (
-    <Layout className="fadeOut">
+    <Layout>
       <SEO title="Home" />
       <section id="index">
-        <Logo className="fadeOut" />
-        <h1 className="fadeOut">Kodex</h1>
-        <h2 className="fadeOut">Modern webistes with a nordic touch</h2>
+        <Logo />
+        <h1>Kodex</h1>
+        <h2>Modern webistes with a nordic touch</h2>
 
         <ol>
           {data.allSanityProjects.edges.map(edge => {
             return (
-              <Link to={edge.node.slug.current} onClick={handleClick}>
-                <li className="animation fadeOut animation--fade-up fadeOutOnClick">
-                  <h3 className="fadeOut">{edge.node.title}</h3>
+              <Link to={edge.node.slug.current}>
+                <li className="animation  animation--fade-up ">
+                  <h3>{edge.node.title}</h3>
                   <p></p>
                   <Img
                     fluid={edge.node.mainImage.asset.fluid}
@@ -67,12 +67,6 @@ export default IndexPage
 
 function initiateAnimations() {
   // Reset opacity
-  let ResetElementsToFadeOut = document.querySelectorAll(".fadeOut")
-  let resetAnimations = document.querySelectorAll(".animation")
-
-  ResetElementsToFadeOut.forEach(element => {
-    element.classList.remove("fadeOutActivated")
-  })
 
   if (window.innerWidth > 1024) {
     // callback function to do animations
@@ -124,18 +118,18 @@ function initiateAnimations() {
   }
 }
 
-function handleClick(e) {
-  e.preventDefault()
+// function handleClick(e) {
+//   e.preventDefault()
 
-  let ElementsToFadeOut = document.querySelectorAll(".fadeOut")
+//   let ElementsToFadeOut = document.querySelectorAll(".fadeOut")
 
-  ElementsToFadeOut.forEach(element => {
-    element.classList.add("fadeOutActivated")
-  })
+//   ElementsToFadeOut.forEach(element => {
+//     element.classList.add("fadeOutActivated")
+//   })
 
-  let LoadURL = e.currentTarget
+//   let LoadURL = e.currentTarget
 
-  setTimeout(() => {
-    window.location.href = LoadURL
-  }, 200)
-}
+//   setTimeout(() => {
+//     window.location.href = LoadURL
+//   }, 200)
+// }

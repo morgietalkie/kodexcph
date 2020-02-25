@@ -28,51 +28,35 @@ export const query = graphql`
   }
 `
 
-class Project extends React.Component {
-  constructor(props) {
-    super(props)
+const Project = props => {
+  return (
+    <Layout>
+      <SEO title={props.data.sanityProjects.title} />
+      <section id="projectPost">
+        <Img
+          fluid={props.data.sanityProjects.mainImage.asset.fluid}
+          onLoad={initiateAnimations}
+        ></Img>
 
-    this.state = {
-      title: props.data.sanityProjects.title,
-      featuredImage: props.data.sanityProjects.mainImage.asset.fluid,
-      rawBody: props.data.sanityProjects._rawBody,
-    }
-  }
-  componentDidMount() {
-    console.log("Component did mount")
-    imageScrollFunction()
-  }
+        <div className="content_wrapper">
+          <h1>{props.data.sanityProjects.title}</h1>
 
-  render() {
-    return (
-      <Layout>
-        <SEO title={this.state.title} />
-        <section id="projectPost">
-          <Img
-            fluid={this.state.featuredImage}
-            onLoad={initiateAnimations}
-          ></Img>
+          <a href="" className="visitSite">
+            Visit site
+          </a>
 
-          <div className="content_wrapper">
-            <h1>{this.state.title}</h1>
-
-            <a href="" className="visitSite">
-              Visit site
-            </a>
-
-            <div>
-              <BlockContent
-                blocks={this.state.rawBody}
-                projectId="j7i4hfvy"
-                dataset="production"
-                className="allBlockContent"
-              />
-            </div>
+          <div>
+            <BlockContent
+              blocks={props.data.sanityProjects._rawBody}
+              projectId="j7i4hfvy"
+              dataset="production"
+              className="allBlockContent"
+            />
           </div>
-        </section>
-      </Layout>
-    )
-  }
+        </div>
+      </section>
+    </Layout>
+  )
 }
 
 export default Project
@@ -88,6 +72,9 @@ function initiateAnimations() {
     element.classList.add("animation")
     element.classList.add("animation--fade-up")
   }
+
+  // allChildrenElements.classList.add("animation")
+  // allChildrenElements.classList.add("animation--fade-up")
 
   console.log(allBlockContent.children)
 
@@ -115,11 +102,9 @@ function initiateAnimations() {
   })
 }
 
-function imageScrollFunction() {
-  window.addEventListener("scroll", imageScrolled)
-}
+document.body.addEventListener("scroll", scrollFunctionImage)
 
-function imageScrolled() {
+function scrollFunctionImage() {
   if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
     console.log(document.querySelector(".gatsby-image-wrapper"))
 

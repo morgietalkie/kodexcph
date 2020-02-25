@@ -1,5 +1,4 @@
 import { Link } from "gatsby"
-import PropTypes, { func } from "prop-types"
 import React from "react"
 
 import Contactform from "./contactform"
