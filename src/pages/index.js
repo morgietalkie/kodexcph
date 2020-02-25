@@ -119,7 +119,6 @@ function initiateAnimations() {
 
 function handleClick(e) {
   e.preventDefault()
-  console.log(e.currentTarget)
   e.target.style.opacity = "0"
 
   let ElementsToFadeOut = document.querySelectorAll(".fadeOut")

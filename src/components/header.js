@@ -1,56 +1,23 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import Contactform from "../components/contactform"
+import PropTypes, { func } from "prop-types"
+import React from "react"
+
+import Contactform from "./contactform"
 import ProjectIcon from "../images/assets/projects.svg"
 import AboutIcon from "../images/assets/about.svg"
 import BlogIcon from "../images/assets/blog.svg"
 import ContactIcon from "../images/assets/contact.svg"
 import CloseIcon from "../images/assets/close.svg"
 import Logo from "../images/assets/logo.svg"
-import React, { Component } from "react"
 
-export default class Navbar extends Component {
+class Header extends React.Component {
   constructor(props) {
     super(props)
-
-    this.state = {
-      prevScrollpos: window.pageYOffset,
-      visible: true,
-    }
+    this.state = { favoritecolor: "red" }
   }
-
-  // Adds an event listener when the component is mount.
   componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll)
-  }
-
-  // Remove the event listener when the component is unmount.
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll)
-  }
-
-  // Hide or show the menu.
-  handleScroll = () => {
-    const { prevScrollpos } = this.state
-
-    const currentScrollPos = window.pageYOffset
-    const visible = prevScrollpos > currentScrollPos
-
-    this.setState({
-      prevScrollpos: currentScrollPos,
-      visible,
-    })
-
-    if (window.innerWidth > 1023) {
-      if (
-        document.body.scrollTop > 1 ||
-        document.documentElement.scrollTop > 1
-      ) {
-        document.querySelector("header").style.backgroundColor = "#ffffff"
-      } else {
-        document.querySelector("header").style.backgroundColor = "#ffffff00"
-      }
-    }
+    console.log("Component did mount")
+    scrollFunction()
   }
 
   render() {
@@ -107,34 +74,26 @@ export default class Navbar extends Component {
   }
 }
 
-// const Header = ({ siteTitle }) => (
-
-// )
-
-// export default Header
-
-// Header.propTypes = {
-//   siteTitle: PropTypes.string,
-// }
-
-// Header.defaultProps = {
-//   siteTitle: ``,
-// }
+export default Header
 
 function openMenu(e) {
   document.querySelector(".menu").classList.toggle("open_menu")
   document.querySelector(".menu").classList.toggle("menu_slide")
-  console.log(e.target.children[0])
 }
 
-// document.body.addEventListener("scroll", scrollFunction)
+console.log()
 
-// function scrollFunction() {
-//   if (window.innerWidth > 1023) {
-//     if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
-//       document.querySelector("header").style.backgroundColor = "#ffffff"
-//     } else {
-//       document.querySelector("header").style.backgroundColor = "#ffffff00"
-//     }
-//   }
-// }
+function scrollFunction() {
+  window.addEventListener("scroll", scrolled)
+}
+
+function scrolled() {
+  console.log("TETETET")
+  if (window.innerWidth > 1023) {
+    if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+      document.querySelector("header").style.backgroundColor = "#ffffff"
+    } else {
+      document.querySelector("header").style.backgroundColor = "#ffffff00"
+    }
+  }
+}

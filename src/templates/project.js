@@ -102,16 +102,16 @@ function initiateAnimations() {
   })
 }
 
-// document.body.addEventListener("scroll", scrollFunctionImage)
+document.body.addEventListener("scroll", scrollFunctionImage)
 
-// function scrollFunctionImage() {
-//   if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
-//     console.log(document.querySelector(".gatsby-image-wrapper"))
+function scrollFunctionImage() {
+  if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+    console.log(document.querySelector(".gatsby-image-wrapper"))
 
-//     document.querySelector(".gatsby-image-wrapper").classList.add("scaledIMG")
-//   } else {
-//     document
-//       .querySelector(".gatsby-image-wrapper")
-//       .classList.remove("scaledIMG")
-//   }
-// }
+    document.querySelector(".gatsby-image-wrapper").classList.add("scaledIMG")
+  } else {
+    document
+      .querySelector(".gatsby-image-wrapper")
+      .classList.remove("scaledIMG")
+  }
+}
