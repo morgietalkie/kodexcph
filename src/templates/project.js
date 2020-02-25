@@ -35,7 +35,7 @@ const Project = props => {
       <section id="projectPost">
         <Img
           fluid={props.data.sanityProjects.mainImage.asset.fluid}
-          onLoad={initiateAnimations}
+          onLoad={(initiateAnimations, imageIsLoaded)}
         ></Img>
 
         <div className="content_wrapper">
@@ -102,7 +102,9 @@ function initiateAnimations() {
   })
 }
 
-document.body.addEventListener("scroll", scrollFunctionImage)
+function imageIsLoaded() {
+  window.addEventListener("scroll", scrollFunctionImage)
+}
 
 function scrollFunctionImage() {
   if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
