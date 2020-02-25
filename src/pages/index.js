@@ -66,6 +66,14 @@ export default IndexPage
 // animations
 
 function initiateAnimations() {
+  // Reset opacity
+  let ResetElementsToFadeOut = document.querySelectorAll(".fadeOut")
+  let resetAnimations = document.querySelectorAll(".animation")
+
+  ResetElementsToFadeOut.forEach(element => {
+    element.classList.remove("fadeOutActivated")
+  })
+
   if (window.innerWidth > 1024) {
     // callback function to do animations
     const scrollImations = (entries, observer) => {
@@ -74,7 +82,6 @@ function initiateAnimations() {
         if (entry.intersectionRatio !== 1) {
           entry.target.style.width = "500px"
         } else {
-          entry.target.style.opacity = "1"
           entry.target.style.width = "580px"
         }
       })
@@ -119,12 +126,11 @@ function initiateAnimations() {
 
 function handleClick(e) {
   e.preventDefault()
-  e.target.style.opacity = "0"
 
   let ElementsToFadeOut = document.querySelectorAll(".fadeOut")
 
   ElementsToFadeOut.forEach(element => {
-    element.style.opacity = "0"
+    element.classList.add("fadeOutActivated")
   })
 
   let LoadURL = e.currentTarget

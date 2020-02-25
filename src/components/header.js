@@ -87,7 +87,6 @@ function scrollFunction() {
 }
 
 function scrolled() {
-  console.log("TETETET")
   if (window.innerWidth > 1023) {
     if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
       document.querySelector("header").style.backgroundColor = "#ffffff"

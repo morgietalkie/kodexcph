@@ -53,6 +53,8 @@ header {
 }
 
 .menu {
+  opacity: 0.3;
+
   position: fixed;
   top: 0;
   height: 100vh;
@@ -70,6 +72,8 @@ header {
     flex-direction: column;
     justify-content: center;
     padding-bottom: 20px;
+    opacity: 0;
+    transition: 0.2s;
   }
 
   svg {
@@ -136,20 +140,14 @@ header {
 }
 
 .open_menu {
-  a {
+  opacity: 1;
+  transition-timing-function: cubic-bezier(1, 0.2, 0.2, 1);
+
+  #scrollable {
     opacity: 1;
-  }
-  a:nth-child(1) {
-    margin-top: auto;
-    transform: translate(0, 0);
-  }
 
-  a:nth-child(2) {
-    transform: translate(0, 0);
-  }
-
-  a:nth-child(3) {
-    transform: translate(0, 0);
+    transition: 0.5s;
+    transition-delay: 0.2s;
   }
 }
 
