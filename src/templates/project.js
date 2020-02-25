@@ -35,7 +35,7 @@ const Project = props => {
       <section id="projectPost">
         <Img
           fluid={props.data.sanityProjects.mainImage.asset.fluid}
-          onLoad={(initiateAnimations, imageIsLoaded)}
+          onLoad={imageIsLoaded}
         ></Img>
 
         <div className="content_wrapper">
@@ -103,6 +103,7 @@ function initiateAnimations() {
 }
 
 function imageIsLoaded() {
+  initiateAnimations()
   window.addEventListener("scroll", scrollFunctionImage)
 }
 
