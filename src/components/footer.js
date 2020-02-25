@@ -11,7 +11,7 @@ const Footer = () => (
     </div>
 
     <div>
-      <h5>Kodex </h5>
+      <h5>KODEX </h5>
       <p>CVR: 40171622</p>
       <p>Nansensgade 5 st. tv.</p>
       <p>1366, Copenhagen</p>

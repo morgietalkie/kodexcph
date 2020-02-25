@@ -1,6 +1,7 @@
 footer {
   div {
     display: grid;
+    grid-template-rows: min-content min-content min-content min-content;
   }
   width: 100vw;
   background: var(--dark-color);
@@ -49,11 +50,15 @@ footer {
   a {
     color: var(--light-color);
     text-decoration: none;
+    font-family: var(--secondary-font);
+    font-size: 14px;
   }
 
   p {
     margin-bottom: 0;
     color: var(--light-color);
+    font-family: var(--secondary-font);
+    font-size: 14px;
   }
 }
 
