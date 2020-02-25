@@ -28,35 +28,51 @@ export const query = graphql`
   }
 `
 
-const Project = props => {
-  return (
-    <Layout>
-      <SEO title={props.data.sanityProjects.title} />
-      <section id="projectPost">
-        <Img
-          fluid={props.data.sanityProjects.mainImage.asset.fluid}
-          onLoad={initiateAnimations}
-        ></Img>
+class Project extends React.Component {
+  constructor(props) {
+    super(props)
 
-        <div className="content_wrapper">
-          <h1>{props.data.sanityProjects.title}</h1>
+    this.state = {
+      title: props.data.sanityProjects.title,
+      featuredImage: props.data.sanityProjects.mainImage.asset.fluid,
+      rawBody: props.data.sanityProjects._rawBody,
+    }
+  }
+  componentDidMount() {
+    console.log("Component did mount")
+    imageScrollFunction()
+  }
 
-          <a href="" className="visitSite">
-            Visit site
-          </a>
+  render() {
+    return (
+      <Layout>
+        <SEO title={this.state.title} />
+        <section id="projectPost">
+          <Img
+            fluid={this.state.featuredImage}
+            onLoad={initiateAnimations}
+          ></Img>
 
-          <div>
-            <BlockContent
-              blocks={props.data.sanityProjects._rawBody}
-              projectId="j7i4hfvy"
-              dataset="production"
-              className="allBlockContent"
-            />
+          <div className="content_wrapper">
+            <h1>{this.state.title}</h1>
+
+            <a href="" className="visitSite">
+              Visit site
+            </a>
+
+            <div>
+              <BlockContent
+                blocks={this.state.rawBody}
+                projectId="j7i4hfvy"
+                dataset="production"
+                className="allBlockContent"
+              />
+            </div>
           </div>
-        </div>
-      </section>
-    </Layout>
-  )
+        </section>
+      </Layout>
+    )
+  }
 }
 
 export default Project
@@ -72,9 +88,6 @@ function initiateAnimations() {
     element.classList.add("animation")
     element.classList.add("animation--fade-up")
   }
-
-  // allChildrenElements.classList.add("animation")
-  // allChildrenElements.classList.add("animation--fade-up")
 
   console.log(allBlockContent.children)
 
@@ -102,16 +115,18 @@ function initiateAnimations() {
   })
 }
 
-// document.body.addEventListener("scroll", scrollFunctionImage)
+function imageScrollFunction() {
+  window.addEventListener("scroll", imageScrolled)
+}
 
-// function scrollFunctionImage() {
-//   if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
-//     console.log(document.querySelector(".gatsby-image-wrapper"))
+function imageScrolled() {
+  if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+    console.log(document.querySelector(".gatsby-image-wrapper"))
 
-//     document.querySelector(".gatsby-image-wrapper").classList.add("scaledIMG")
-//   } else {
-//     document
-//       .querySelector(".gatsby-image-wrapper")
-//       .classList.remove("scaledIMG")
-//   }
-// }
+    document.querySelector(".gatsby-image-wrapper").classList.add("scaledIMG")
+  } else {
+    document
+      .querySelector(".gatsby-image-wrapper")
+      .classList.remove("scaledIMG")
+  }
+}

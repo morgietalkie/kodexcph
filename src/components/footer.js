@@ -1,9 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
 import Logo from "../images/assets/logo.svg"
-
-import Layout from "../components/layout"
-import SEO from "../components/seo"
 
 const Footer = () => (
   <footer>

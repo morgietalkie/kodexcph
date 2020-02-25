@@ -13,7 +13,6 @@ import Logo from "../images/assets/logo.svg"
 class Header extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { favoritecolor: "red" }
   }
   componentDidMount() {
     console.log("Component did mount")
