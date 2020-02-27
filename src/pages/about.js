@@ -86,6 +86,14 @@ const About = () => {
 export default About
 
 function timeOut() {
+  const allBlockContent = document.querySelector(".allBlockContent")
+  const allChildrenElements = allBlockContent.children
+
+  for (let index = 0; index < allChildrenElements.length; index++) {
+    const element = allChildrenElements[index]
+    element.classList.add("animation")
+    element.classList.add("animation--fade-up")
+  }
   setTimeout(() => {
     initiateAnimations()
   }, 1200)
@@ -94,14 +102,6 @@ function timeOut() {
 // animations
 
 function initiateAnimations() {
-  const allBlockContent = document.querySelector(".allBlockContent")
-  const allChildrenElements = allBlockContent.children
-
-  for (let index = 1; index < allChildrenElements.length; index++) {
-    const element = allChildrenElements[index]
-    element.classList.add("animation")
-    element.classList.add("animation--fade-up")
-  }
   // Reset opacity
 
   // callback function to do animations

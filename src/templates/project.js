@@ -11,6 +11,7 @@ export const query = graphql`
   query($Slug: String) {
     sanityProjects(slug: { current: { eq: $Slug } }) {
       title
+      categories
       _rawBody
       body {
         sanityChildren {
@@ -41,6 +42,11 @@ const Project = props => {
 
         <div className="content_wrapper">
           <h1>{props.data.sanityProjects.title}</h1>
+          <ol>
+            {props.data.sanityProjects.categories.map(function(category) {
+              return <li>{category}</li>
+            })}
+          </ol>
 
           <a href="" className="visitSite">
             Visit site

@@ -11,6 +11,7 @@ export const query = graphql`
   query($Slug: String) {
     sanityPost(slug: { current: { eq: $Slug } }) {
       title
+      categories
       _rawBody
       body {
         sanityChildren {
@@ -33,9 +34,14 @@ const BLog = props => {
     <Layout>
       <SEO title={props.data.sanityPost.title} />
       <section id="blogPost">
-        <Img fluid={props.data.sanityPost.mainImage.asset.fluid}></Img>
-
         <h1>{props.data.sanityPost.title}</h1>
+
+        <Img fluid={props.data.sanityPost.mainImage.asset.fluid}></Img>
+        <ol>
+          {props.data.sanityPost.categories.map(function(category) {
+            return <li>{category}</li>
+          })}
+        </ol>
         <div>
           <BlockContent
             blocks={props.data.sanityPost._rawBody}

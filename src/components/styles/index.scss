@@ -89,13 +89,14 @@
       width: 500px;
       margin-bottom: 100px;
       transition: 0.4s;
+      transition-delay: 0.2s;
       transition-timing-function: cubic-bezier(0.56, 0.36, 0.07, 0.94);
 
       opacity: 1;
       cursor: default;
     }
 
-    li:hover .gatsby-image-wrapper {
+    li:hover .img-hover-effect {
       width: 97%;
       opacity: 0.01;
     }

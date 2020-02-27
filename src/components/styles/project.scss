@@ -20,6 +20,21 @@
     text-align: center;
   }
 
+  ol {
+    display: flex;
+    justify-content: start;
+    margin: 0;
+    margin-bottom: 50px;
+    li {
+      list-style: none;
+      background-color: var(--light-color);
+      padding: 2px 5px;
+      border-radius: 2px;
+      margin: 0 2px;
+      height: fit-content;
+      font-family: var(--secondary-font);
+    }
+  }
   .visitSite {
     background: var(--dark-color);
     padding: 10px 20px;
