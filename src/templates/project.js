@@ -36,6 +36,7 @@ const Project = props => {
         <Img
           fluid={props.data.sanityProjects.mainImage.asset.fluid}
           onLoad={imageIsLoaded}
+          className="postImage"
         ></Img>
 
         <div className="content_wrapper">

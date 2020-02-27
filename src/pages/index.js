@@ -15,6 +15,7 @@ const IndexPage = () => {
       allSanityProjects {
         edges {
           node {
+            _id
             title
             slug {
               current
@@ -41,13 +42,13 @@ const IndexPage = () => {
         <h2>Modern webistes with a nordic touch</h2>
 
         <ol>
-          {data.allSanityProjects.edges.map(edge => {
+          {data.allSanityProjects.edges.map(function(edge, i) {
             return (
               <Link to={edge.node.slug.current}>
-                <li className="animation  animation--fade-up ">
-                  <h3>{edge.node.title}</h3>
-                  <p></p>
+                <li className="animation  animation--fade-up " key={i}>
+                  <h3 key={i}>{edge.node.title}</h3>
                   <Img
+                    key={i}
                     fluid={edge.node.mainImage.asset.fluid}
                     onLoad={initiateAnimations}
                   />
