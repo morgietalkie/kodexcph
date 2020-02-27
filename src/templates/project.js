@@ -110,12 +110,10 @@ function imageIsLoaded() {
 
 function scrollFunctionImage() {
   if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
-    console.log(document.querySelector(".gatsby-image-wrapper"))
+    console.log(document.querySelector(".postImage"))
 
-    document.querySelector(".gatsby-image-wrapper").classList.add("scaledIMG")
+    document.querySelector(".postImage").classList.add("scaledIMG")
   } else {
-    document
-      .querySelector(".gatsby-image-wrapper")
-      .classList.remove("scaledIMG")
+    document.querySelector(".postImage").classList.remove("scaledIMG")
   }
 }
