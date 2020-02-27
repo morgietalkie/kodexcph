@@ -23,7 +23,7 @@ const About = () => {
             image {
               asset {
                 fluid {
-                  ...GatsbySanityImageFluid
+                  ...GatsbySanityImageFluid_withWebp
                 }
               }
             }
@@ -36,14 +36,12 @@ const About = () => {
     <Layout>
       <SEO title="About" />
       <section className="about">
-        <h1 className="animation  animation--fade-up ">
+        <h1>
           <Typewriter
             options={{
               strings: ["Who are we?", "What are we?", "Where are we?"],
               autoStart: true,
               loop: true,
-              changeDeleteSpeed: 1,
-              changeDelay: 10,
             }}
           />
         </h1>
@@ -63,7 +61,7 @@ const About = () => {
                 <Img
                   key={edge.node._id}
                   fluid={edge.node.image.asset.fluid}
-                  onLoad={initiateAnimations}
+                  onLoad={timeOut}
                 />
                 <h3 key={edge.node._id}> {edge.node.name}</h3>
                 <ol className="corporate_titles">
@@ -86,6 +84,12 @@ const About = () => {
   )
 }
 export default About
+
+function timeOut() {
+  setTimeout(() => {
+    initiateAnimations()
+  }, 1200)
+}
 
 // animations
 

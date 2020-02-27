@@ -33,7 +33,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="blog" />
       <section id="index">
         <h1>Kodex</h1>
         <p>Modern webistes with a nordic touch</p>

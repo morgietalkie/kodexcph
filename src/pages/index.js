@@ -35,7 +35,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Projects" />
       <section id="index">
         <Logo />
         <h1>Kodex</h1>
