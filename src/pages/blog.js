@@ -49,15 +49,16 @@ const IndexPage = () => {
         description={data.sanityPages.seo.meta_description}
       />
       <section id="blog">
-        <h1>Updates and insights</h1>
+        <h1 className="animation  animation--fade-up ">Updates and insights</h1>
 
         <ol>
           {data.allSanityPost.edges.map(edge => {
             return (
               <Link to={`/blog/${edge.node.slug.current}`}>
-                <li>
+                <li className="animation  animation--fade-up ">
                   <Img
                     fluid={edge.node.mainImage.asset.fluid}
+                    onLoad={initiateAnimations}
                     alt={edge.node.title}
                   />
                   <h2>{edge.node.title}</h2>
@@ -73,3 +74,46 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+function initiateAnimations() {
+  // allChildrenElements.classList.add("animation")
+  // allChildrenElements.classList.add("animation--fade-up")
+
+  // callback function to do animations
+  const scrollImations = (entries, observer) => {
+    entries.forEach(entry => {
+      // only do animation if the element is fully on screen
+      if (entry.isIntersecting && entry.intersectionRatio >= 0) {
+        entry.target.classList.add("animation--visible")
+      } else {
+      }
+    })
+  }
+
+  // create the observer
+  const options = {
+    threshold: 0.2,
+  }
+  const observer = new IntersectionObserver(scrollImations, options)
+
+  // target the elements to be observed
+  const animations = document.querySelectorAll(".animation")
+  animations.forEach(animation => {
+    observer.observe(animation)
+  })
+}
+
+function imageIsLoaded() {
+  initiateAnimations()
+  window.addEventListener("scroll", scrollFunctionImage)
+}
+
+function scrollFunctionImage() {
+  if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+    console.log(document.querySelector(".postImage"))
+
+    document.querySelector(".postImage").classList.add("scaledIMG")
+  } else {
+    document.querySelector(".postImage").classList.remove("scaledIMG")
+  }
+}

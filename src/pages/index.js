@@ -134,19 +134,3 @@ function initiateAnimations() {
     })
   }
 }
-
-// function handleClick(e) {
-//   e.preventDefault()
-
-//   let ElementsToFadeOut = document.querySelectorAll(".fadeOut")
-
-//   ElementsToFadeOut.forEach(element => {
-//     element.classList.add("fadeOutActivated")
-//   })
-
-//   let LoadURL = e.currentTarget
-
-//   setTimeout(() => {
-//     window.location.href = LoadURL
-//   }, 200)
-// }
