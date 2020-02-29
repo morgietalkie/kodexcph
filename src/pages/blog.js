@@ -21,8 +21,8 @@ const IndexPage = () => {
             }
             mainImage {
               asset {
-                fluid {
-                  ...GatsbySanityImageFluid
+                fluid(maxWidth: 300) {
+                  ...GatsbySanityImageFluid_withWebp
                 }
               }
             }
@@ -43,7 +43,10 @@ const IndexPage = () => {
             return (
               <Link to={`/blog/${edge.node.slug.current}`}>
                 <li>
-                  <Img fluid={edge.node.mainImage.asset.fluid} />
+                  <Img
+                    fluid={edge.node.mainImage.asset.fluid}
+                    alt={edge.node.title}
+                  />
                   <h2>{edge.node.title}</h2>
                   <h3>Published at: {edge.node.publishedAt}</h3>
                 </li>

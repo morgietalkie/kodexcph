@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import BlockContent from "@sanity/block-content-to-react"
+import serializers from "../components/serializers"
 
 export const query = graphql`
   query($Slug: String) {
@@ -52,6 +53,7 @@ const BLog = props => {
         <Img
           onLoad={initiateAnimations}
           fluid={props.data.sanityPost.mainImage.asset.fluid}
+          alt={props.data.sanityPost.title}
         ></Img>
         <ol>
           {props.data.sanityPost.categories.map(function(category) {
@@ -64,6 +66,7 @@ const BLog = props => {
             blocks={props.data.sanityPost._rawBody}
             projectId="j7i4hfvy"
             dataset="production"
+            serializers={serializers}
           />
         </div>
       </section>

@@ -103,7 +103,10 @@ sup {
 }
 img {
   border-style: none;
+
+  text-indent: -9999px;
 }
+
 svg:not(:root) {
   overflow: hidden;
 }

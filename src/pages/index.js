@@ -47,6 +47,7 @@ const IndexPage = () => {
               <Link to={edge.node.slug.current}>
                 <li className="animation  animation--fade-up " key={i}>
                   <Img
+                    alt={`Project: ${edge.node.title}`}
                     className="img-hover-effect"
                     key={i}
                     fluid={edge.node.mainImage.asset.fluid}

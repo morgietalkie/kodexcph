@@ -6,6 +6,8 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import BlockContent from "@sanity/block-content-to-react"
+import serializers from "../components/serializers"
+// import { func } from "prop-types"
 
 export const query = graphql`
   query($Slug: String) {
@@ -13,6 +15,7 @@ export const query = graphql`
       title
       categories
       _rawBody
+      websiteUrl
       body {
         sanityChildren {
           text
@@ -35,6 +38,7 @@ const Project = props => {
       <SEO title={props.data.sanityProjects.title} />
       <section id="projectPost">
         <Img
+          alt={`Project: ${props.data.sanityProjects.title}`}
           fluid={props.data.sanityProjects.mainImage.asset.fluid}
           onLoad={imageIsLoaded}
           className="postImage"
@@ -48,13 +52,14 @@ const Project = props => {
             })}
           </ol>
 
-          <a href="" className="visitSite">
+          <a href={props.data.sanityProjects.websiteUrl} className="visitSite">
             Visit site
           </a>
 
           <div>
             <BlockContent
               blocks={props.data.sanityProjects._rawBody}
+              serializers={serializers}
               projectId="j7i4hfvy"
               dataset="production"
               className="allBlockContent"

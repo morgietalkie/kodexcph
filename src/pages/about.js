@@ -4,6 +4,7 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import serializers from "../components/serializers"
 
 import Typewriter from "typewriter-effect"
 import BlockContent from "@sanity/block-content-to-react"
@@ -14,7 +15,16 @@ const About = () => {
       sanityCompanyInfo {
         _rawDescription
       }
-
+      sanityPages(title: { eq: "About page" }) {
+        seo {
+          _type
+          focus_keyword
+          seo_title
+          meta_description
+          _key
+        }
+        title
+      }
       allSanityAuthor {
         edges {
           node {
@@ -22,7 +32,7 @@ const About = () => {
             corporate_title
             image {
               asset {
-                fluid {
+                fluid(maxWidth: 300) {
                   ...GatsbySanityImageFluid_withWebp
                 }
               }
@@ -34,7 +44,10 @@ const About = () => {
   `)
   return (
     <Layout>
-      <SEO title="About" />
+      <SEO
+        title={data.sanityPages.seo.seo_title}
+        metaDescription={data.sanityPages.seo.description}
+      />
       <section className="about">
         <h1>
           <Typewriter
@@ -62,6 +75,7 @@ const About = () => {
                   key={edge.node._id}
                   fluid={edge.node.image.asset.fluid}
                   onLoad={timeOut}
+                  alt={edge.node.name}
                 />
                 <h3 key={edge.node._id}> {edge.node.name}</h3>
                 <ol className="corporate_titles">
@@ -78,6 +92,7 @@ const About = () => {
           projectId="j7i4hfvy"
           dataset="production"
           className="allBlockContent"
+          serializers={serializers}
         />
       </section>
     </Layout>
