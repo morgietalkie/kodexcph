@@ -46,13 +46,13 @@ const IndexPage = () => {
             return (
               <Link to={edge.node.slug.current}>
                 <li className="animation  animation--fade-up " key={i}>
-                  <h3 key={i}>{edge.node.title}</h3>
                   <Img
                     className="img-hover-effect"
                     key={i}
                     fluid={edge.node.mainImage.asset.fluid}
                     onLoad={initiateAnimations}
                   />
+                  <h3 key={i}>{edge.node.title}</h3>
                 </li>
               </Link>
             )

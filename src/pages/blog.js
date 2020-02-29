@@ -15,6 +15,7 @@ const IndexPage = () => {
         edges {
           node {
             title
+            publishedAt
             slug {
               current
             }
@@ -34,18 +35,17 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="blog" />
-      <section id="index">
-        <h1>Kodex</h1>
-        <p>Modern webistes with a nordic touch</p>
+      <section id="blog">
+        <h1>Updates and insights</h1>
 
         <ol>
           {data.allSanityPost.edges.map(edge => {
             return (
               <Link to={`/blog/${edge.node.slug.current}`}>
                 <li>
-                  <h2>{edge.node.title}</h2>
-                  <p></p>
                   <Img fluid={edge.node.mainImage.asset.fluid} />
+                  <h2>{edge.node.title}</h2>
+                  <h3>Published at: {edge.node.publishedAt}</h3>
                 </li>
               </Link>
             )

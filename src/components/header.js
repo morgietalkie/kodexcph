@@ -25,14 +25,14 @@ class Header extends React.Component {
           <Logo />
         </Link>
 
-        <Link to="/" activeClassName="activeLink">
+        <Link to="/" className="pageLink" activeClassName="activeLink">
           <ProjectIcon /> Projects
         </Link>
-        <Link to="about" activeClassName="activeLink">
+        <Link to="about" className="pageLink" activeClassName="activeLink">
           <AboutIcon />
           About
         </Link>
-        <Link to="blog" activeClassName="activeLink">
+        <Link to="blog" className="pageLink" activeClassName="activeLink">
           <BlogIcon />
           Blog
         </Link>
