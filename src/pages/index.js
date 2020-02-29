@@ -30,12 +30,26 @@ const IndexPage = () => {
           }
         }
       }
+      sanityPages(_id: { eq: "db68df85-d952-4844-a8ea-b0b72ae8f3c7" }) {
+        seo {
+          _type
+          focus_keyword
+          seo_title
+          meta_description
+          _key
+        }
+        title
+        _id
+      }
     }
   `)
 
   return (
     <Layout>
-      <SEO title="Projects" />
+      <SEO
+        title={data.sanityPages.seo.seo_title}
+        description={data.sanityPages.seo.meta_description}
+      />
       <section id="index">
         <Logo />
         <h1>Kodex</h1>

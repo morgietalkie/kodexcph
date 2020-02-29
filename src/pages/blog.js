@@ -29,12 +29,25 @@ const IndexPage = () => {
           }
         }
       }
+      sanityPages(_id: { eq: "590b8320-d955-4deb-a2e1-6b50169f192a" }) {
+        seo {
+          _type
+          focus_keyword
+          seo_title
+          meta_description
+          _key
+        }
+        title
+      }
     }
   `)
 
   return (
     <Layout>
-      <SEO title="blog" />
+      <SEO
+        title={data.sanityPages.seo.seo_title}
+        description={data.sanityPages.seo.meta_description}
+      />
       <section id="blog">
         <h1>Updates and insights</h1>
 

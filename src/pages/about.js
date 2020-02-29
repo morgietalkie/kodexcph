@@ -15,7 +15,7 @@ const About = () => {
       sanityCompanyInfo {
         _rawDescription
       }
-      sanityPages(title: { eq: "About page" }) {
+      sanityPages(_id: { eq: "02362f18-0f4a-4768-8383-821f2ee59936" }) {
         seo {
           _type
           focus_keyword
@@ -46,7 +46,7 @@ const About = () => {
     <Layout>
       <SEO
         title={data.sanityPages.seo.seo_title}
-        metaDescription={data.sanityPages.seo.description}
+        description={data.sanityPages.seo.meta_description}
       />
       <section className="about">
         <h1>

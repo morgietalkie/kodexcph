@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 
 const MailSend = () => (
   <Layout>
-    <SEO title="Mail send succesfully" />
+    <SEO title="Mail sent succesfully" />
     <div className="mail_wrapper">
       <h1>Mail sendt succesfully</h1>
       <p>We'll get back to you as soon as possible</p>

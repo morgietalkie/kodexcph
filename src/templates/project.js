@@ -12,6 +12,13 @@ import serializers from "../components/serializers"
 export const query = graphql`
   query($Slug: String) {
     sanityProjects(slug: { current: { eq: $Slug } }) {
+      seo {
+        _key
+        _type
+        focus_keyword
+        seo_title
+        meta_description
+      }
       title
       categories
       _rawBody
@@ -35,7 +42,11 @@ export const query = graphql`
 const Project = props => {
   return (
     <Layout>
-      <SEO title={props.data.sanityProjects.title} />
+      <SEO
+        title={props.data.sanityProjects.seo.seo_title}
+        description={props.data.sanityProjects.seo.meta_description}
+        image={props.data.sanityProjects.mainImage.asset.fluid.src}
+      />
       <section id="projectPost">
         <Img
           alt={`Project: ${props.data.sanityProjects.title}`}
