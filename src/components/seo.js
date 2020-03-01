@@ -37,6 +37,10 @@ function SEO({ description, lang, meta, title, image, tags }) {
       description={description}
       meta={[
         {
+          name: `google-site-verification`,
+          content: `vtN3ckBbeoPo3ZAN1QbuVPkak2he58XaA0D0eu9rnH0`,
+        },
+        {
           name: `description`,
           content: metaDescription,
         },
