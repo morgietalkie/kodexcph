@@ -58,11 +58,9 @@ const About = () => {
             }}
           />
         </h1>
-        <p className="animation  animation--fade-up ">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi
-        </p>
+        {/* <p className="animation  animation--fade-up ">
+          <b>We are Kodex - A digital bureau based in Copenhagen.</b> Our motivation is to stay on top of 
+        </p> */}
 
         <ol>
           {data.allSanityAuthor.edges.map(function(edge) {
