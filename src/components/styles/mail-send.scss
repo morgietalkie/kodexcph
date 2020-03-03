@@ -1,0 +1,14 @@
+.mail_wrapper {
+  position: absolute;
+  width: calc(100vw - 40px);
+  height: calc(100vh - 40px);
+  top: 20px;
+  left: 20px;
+  background: var(--light-color);
+  padding: 5vw;
+
+  text-align: center;
+  h1 {
+    margin-top: 60px;
+  }
+}

@@ -1,0 +1,45 @@
+:root {
+  --primary-font: "Merriweather", serif;
+  --secondary-font: "Montserrat", sans-serif;
+  --light-color: #ebeced;
+  --semi-dark: #a2aab0;
+  --dark-color: #3e3e3b;
+  --link-color: #266dd3;
+  --link-active-color: #1a4b91;
+}
+
+svg {
+  fill: var(--dark-color);
+}
+
+.animation--fade-up {
+  opacity: 0;
+  transform: translate(0, 15px);
+}
+
+.animation--fade-up.animation--visible {
+  opacity: 1;
+  transition: 1s;
+  transform: translate(0, 0);
+}
+
+// .fadeOut {
+//   transition: 0.2s;
+// }
+
+// .fadeOutActivated {
+//   transition: 0.2s;
+//   opacity: 0 !important;
+// }
+
+.scaledIMG {
+  transform: scale3d(0.9, 0.9, 1);
+  transition: 0.3s;
+}
+
+@media only screen and (min-width: 480px) {
+  .scaledIMG {
+    transform: scale3d(0.96, 0.96, 1);
+    transition: 0.2s;
+  }
+}
