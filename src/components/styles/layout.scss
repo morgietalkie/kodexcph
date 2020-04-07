@@ -73,7 +73,7 @@ dfn {
 }
 h1 {
   font-size: 40px;
-  margin: 0.67em 0;
+  margin: 1em 0;
   font-weight: bold;
 }
 
@@ -272,7 +272,7 @@ h2 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 1.4rem;
   color: inherit;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -289,7 +289,7 @@ h3 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 1.8rem;
   color: inherit;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -306,7 +306,7 @@ h4 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 1.2rem;
   color: inherit;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -411,7 +411,7 @@ p {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 1rem;
   line-height: 28px;
 }
 figure {
@@ -475,6 +475,52 @@ blockquote {
   font-family: var(--primary-font);
   font-style: italic;
   text-align: center;
+}
+
+blockquote {
+  font-size: 20px;
+  line-height: 30px;
+  font-family: var(--primary-font);
+  position: relative;
+  padding: 40px 20px;
+  background: var(--light-color);
+  text-align: center;
+  margin: 60px 0;
+  font-style: italic;
+  opacity: 0.8;
+
+  &:before {
+    content: "“";
+    font-family: arial;
+    font-style: normal;
+    opacity: 1;
+    position: absolute;
+    right: 100%;
+    font-size: 120px;
+    line-height: 0px;
+    left: 10px;
+    top: 35px;
+    color: var(--primary-link-color);
+    z-index: 2;
+  }
+
+  &:after {
+    z-index: 2;
+
+    content: "“";
+    font-family: arial;
+    font-style: normal;
+    opacity: 1;
+    position: absolute;
+    right: 100%;
+    font-size: 120px;
+    line-height: 0px;
+    right: 10px;
+    bottom: 35px;
+    transform: rotate(180deg);
+    color: var(--primary-link-color);
+    opacity: 1;
+  }
 }
 form {
   margin-left: 0;
