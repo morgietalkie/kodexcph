@@ -19,16 +19,23 @@
     li {
       list-style: none;
       position: relative;
-      margin-bottom: 100px;
+      margin-bottom: 0;
 
       .gatsby-image-wrapper {
-        height: 90vw;
+        height: 200px;
         width: 100%;
       }
     }
   }
   a {
     text-decoration: none;
+    border: 1px solid var(--light-color);
+    transition: 0.2s;
+  }
+
+  a:hover {
+    box-shadow: #0000000a 0px 6px 16px 0px;
+    transition: 0.2s;
   }
 
   h2 {
@@ -38,6 +45,7 @@
     text-align: left;
     font-size: 18px;
     margin-bottom: 0;
+    padding: 10px;
   }
   h3 {
     color: var(--dark-color);
@@ -45,6 +53,10 @@
     text-align: left;
     font-size: 14px;
     opacity: 0.8;
+    margin-top: auto;
+    padding: 10px;
+    padding-top: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -54,28 +66,15 @@
       grid-template-columns: 1fr 1fr;
 
       li {
-        background-color: var(--light-color);
-        height: 40vw;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
         .gatsby-image-wrapper {
-          height: 40vw;
+          height: 200px;
           width: 100%;
           display: flex;
-
-          img {
-            transition: 0.2s !important;
-            position: absolute !important;
-            left: 50% !important;
-            top: 50% !important;
-            transform: translate(-50%, -50%);
-          }
         }
-      }
-
-      li:hover .gatsby-image-wrapper img {
-        width: 90% !important;
-        height: 90% !important;
-        transition: 0.2s !important;
-        margin: auto !important;
       }
     }
   }
@@ -85,15 +84,10 @@
   #blog {
     ol {
       grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto;
 
       li {
-        background-color: var(--light-color);
-        height: 20vw;
-        max-height: 300px;
         .gatsby-image-wrapper {
-          height: 20vw;
-          max-height: 300px;
-
           width: 100%;
           display: flex;
 
@@ -105,13 +99,6 @@
             transform: translate(-50%, -50%);
           }
         }
-      }
-
-      li:hover .gatsby-image-wrapper img {
-        width: 90% !important;
-        height: 90% !important;
-        transition: 0.2s !important;
-        margin: auto !important;
       }
     }
   }

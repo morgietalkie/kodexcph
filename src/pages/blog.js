@@ -11,7 +11,7 @@ import Img from "gatsby-image"
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      allSanityPost {
+      allSanityPost(sort: { order: DESC, fields: publishedAt }) {
         edges {
           node {
             title
@@ -54,8 +54,11 @@ const IndexPage = () => {
         <ol>
           {data.allSanityPost.edges.map(edge => {
             return (
-              <Link to={`/blog/${edge.node.slug.current}`}>
-                <li className="animation  animation--fade-up ">
+              <Link
+                className="animation  animation--fade-up"
+                to={`/blog/${edge.node.slug.current}`}
+              >
+                <li>
                   <Img
                     fluid={edge.node.mainImage.asset.fluid}
                     onLoad={initiateAnimations}
