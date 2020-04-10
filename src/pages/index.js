@@ -12,7 +12,7 @@ import Logo from "../images/assets/logo.svg"
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      allSanityProjects {
+      allSanityProjects(sort: { fields: publishedAt, order: DESC }) {
         edges {
           node {
             _id
@@ -55,7 +55,7 @@ const IndexPage = () => {
         <h1>Kodex</h1>
         <h2>Modern webistes with a nordic touch</h2>
 
-        <div className="horizontal-scroll-wrapper squares">
+        <div className="horizontal-scroll-wrapper squares animation  animation--fade-up">
           {data.allSanityProjects.edges.map(function(edge, i) {
             return (
               <Link to={edge.node.slug.current}>
@@ -72,6 +72,10 @@ const IndexPage = () => {
               </Link>
             )
           })}
+
+          {/* <div className="getInTouch">
+            <p></p>
+          </div> */}
         </div>
       </section>
     </Layout>
@@ -83,54 +87,44 @@ export default IndexPage
 // animations
 
 function initiateAnimations() {
-  // Reset opacity
+  // allChildrenElements.classList.add("animation")
+  // allChildrenElements.classList.add("animation--fade-up")
 
-  if (window.innerWidth > 1024) {
-    // callback function to do animations
-    const scrollImations = (entries, observer) => {
-      entries.forEach(entry => {
-        // only do animation if the element is fully on screen
-        if (entry.intersectionRatio !== 1) {
-          entry.target.style.width = "500px"
-        } else {
-          entry.target.style.width = "580px"
-        }
-      })
-    }
-
-    // create the observer
-    const options = {
-      threshold: 1,
-    }
-    const observer = new IntersectionObserver(scrollImations, options)
-
-    // target the elements to be observed
-    const animations = document.querySelectorAll(".animation")
-    animations.forEach(animation => {
-      observer.observe(animation)
+  // callback function to do animations
+  const scrollImations = (entries, observer) => {
+    entries.forEach(entry => {
+      // only do animation if the element is fully on screen
+      if (entry.isIntersecting && entry.intersectionRatio >= 0) {
+        entry.target.classList.add("animation--visible")
+      } else {
+      }
     })
+  }
+
+  // create the observer
+  const options = {
+    threshold: 0.2,
+  }
+  const observer = new IntersectionObserver(scrollImations, options)
+
+  // target the elements to be observed
+  const animations = document.querySelectorAll(".animation")
+  animations.forEach(animation => {
+    observer.observe(animation)
+  })
+}
+
+function imageIsLoaded() {
+  initiateAnimations()
+  window.addEventListener("scroll", scrollFunctionImage)
+}
+
+function scrollFunctionImage() {
+  if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+    console.log(document.querySelector(".postImage"))
+
+    document.querySelector(".postImage").classList.add("scaledIMG")
   } else {
-    // callback function to do animations
-    const scrollImations = (entries, observer) => {
-      entries.forEach(entry => {
-        // only do animation if the element is fully on screen
-        if (entry.isIntersecting && entry.intersectionRatio >= 0) {
-          entry.target.classList.add("animation--visible")
-        } else {
-        }
-      })
-    }
-
-    // create the observer
-    const options = {
-      threshold: 0.2,
-    }
-    const observer = new IntersectionObserver(scrollImations, options)
-
-    // target the elements to be observed
-    const animations = document.querySelectorAll(".animation")
-    animations.forEach(animation => {
-      observer.observe(animation)
-    })
+    document.querySelector(".postImage").classList.remove("scaledIMG")
   }
 }

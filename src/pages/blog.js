@@ -51,13 +51,10 @@ const IndexPage = () => {
       <section id="blog">
         <h1 className="animation  animation--fade-up ">Updates and insights</h1>
 
-        <ol>
+        <ol className="animation  animation--fade-up">
           {data.allSanityPost.edges.map(edge => {
             return (
-              <Link
-                className="animation  animation--fade-up"
-                to={`/blog/${edge.node.slug.current}`}
-              >
+              <Link to={`/blog/${edge.node.slug.current}`}>
                 <li>
                   <Img
                     fluid={edge.node.mainImage.asset.fluid}

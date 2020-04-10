@@ -1,6 +1,7 @@
 #index {
   width: 90vw;
   margin: auto;
+  overflow: hidden;
 
   h1,
   h2,
@@ -89,15 +90,18 @@
 
     .horizontal-scroll-wrapper {
       display: flex;
-      justify-content: space-between;
-      overflow: scroll;
+      overflow-x: scroll;
+      overflow-y: hidden;
       box-sizing: border-box;
       height: 500px;
+      scroll-snap-type: x mandatory;
     }
 
     .scrolls {
-      margin: 0 50px;
-      width: 500px;
+      scroll-snap-align: start;
+
+      padding: 0 50px;
+      width: 600px;
       margin-bottom: 100px;
       transition: 0.4s;
       transition-delay: 0.2s;
@@ -107,13 +111,9 @@
       cursor: default;
     }
 
-    li:hover .img-hover-effect {
-      width: 97%;
-      opacity: 0.01;
-    }
-
-    li:hover h3 {
-      opacity: 1;
+    .getInTouch p {
+      width: 100vw;
+      text-align: left;
     }
   }
 }
