@@ -68,7 +68,11 @@ const BLog = props => {
         ></Img>
         <ol>
           {props.data.sanityPost.categories.map(function(category) {
-            return <li>{category}</li>
+            return (
+              <li>
+                <p>{category}</p>
+              </li>
+            )
           })}
         </ol>
         <div>

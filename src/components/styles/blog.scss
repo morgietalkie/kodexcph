@@ -9,6 +9,18 @@
     text-align: left;
     margin-bottom: 30px;
   }
+  h2 {
+    text-align: left;
+  }
+
+  p {
+    min-height: 18px;
+  }
+
+  img,
+  figure {
+    margin-bottom: 0;
+  }
 
   .blogPostInfo {
     display: flex;
@@ -26,12 +38,14 @@
       margin: 0 0;
       text-align: left;
       font-size: 10px;
+      white-space: nowrap;
     }
     margin-bottom: 30px;
   }
 
   ol {
     display: flex;
+    flex-wrap: wrap;
     justify-content: start;
     margin: 0;
     margin-top: 20px;
@@ -41,7 +55,7 @@
       background-color: var(--light-color);
       padding: 2px 5px;
       border-radius: 2px;
-      margin: 0 2px;
+      margin: 2px;
       height: fit-content;
       font-family: var(--secondary-font);
     }

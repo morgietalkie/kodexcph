@@ -55,11 +55,11 @@ const IndexPage = () => {
         <h1>Kodex</h1>
         <h2>Modern webistes with a nordic touch</h2>
 
-        <div className="horizontal-scroll-wrapper squares animation  animation--fade-up">
+        <div className="horizontal-scroll-wrapper squares ">
           {data.allSanityProjects.edges.map(function(edge, i) {
             return (
               <Link to={edge.node.slug.current}>
-                <div className="scrolls" key={i}>
+                <div className="scrolls animation  animation--fade-in" key={i}>
                   <Img
                     alt={`Project: ${edge.node.title}`}
                     className="img-hover-effect"
@@ -83,8 +83,6 @@ const IndexPage = () => {
 }
 
 export default IndexPage
-
-// animations
 
 function initiateAnimations() {
   // allChildrenElements.classList.add("animation")
@@ -112,11 +110,6 @@ function initiateAnimations() {
   animations.forEach(animation => {
     observer.observe(animation)
   })
-}
-
-function imageIsLoaded() {
-  initiateAnimations()
-  window.addEventListener("scroll", scrollFunctionImage)
 }
 
 function scrollFunctionImage() {

@@ -38,10 +38,7 @@
     text-align: left;
   }
 
-  ol {
-    margin: 0;
-  }
-  li {
+  .scrolls {
     list-style: none;
     margin-bottom: 80px;
   }
@@ -107,7 +104,6 @@
       transition-delay: 0.2s;
       transition-timing-function: cubic-bezier(0.56, 0.36, 0.07, 0.94);
 
-      opacity: 1;
       cursor: default;
     }
 
