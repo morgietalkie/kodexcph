@@ -55,11 +55,11 @@ const IndexPage = () => {
         <h1>Kodex</h1>
         <h2>Modern webistes with a nordic touch</h2>
 
-        <ol>
+        <div className="horizontal-scroll-wrapper squares">
           {data.allSanityProjects.edges.map(function(edge, i) {
             return (
               <Link to={edge.node.slug.current}>
-                <li className="animation  animation--fade-up " key={i}>
+                <div className="scrolls" key={i}>
                   <Img
                     alt={`Project: ${edge.node.title}`}
                     className="img-hover-effect"
@@ -68,11 +68,11 @@ const IndexPage = () => {
                     onLoad={initiateAnimations}
                   />
                   <h3 key={i}>{edge.node.title}</h3>
-                </li>
+                </div>
               </Link>
             )
           })}
-        </ol>
+        </div>
       </section>
     </Layout>
   )

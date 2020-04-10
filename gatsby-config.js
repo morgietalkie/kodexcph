@@ -3,6 +3,7 @@ module.exports = {
     title: `Kodex, modern websites with a nordic touch`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
+    siteUrl: `https://www.kodexcph.com`,
   },
   plugins: [
     {
@@ -14,6 +15,7 @@ module.exports = {
     },
 
     `gatsby-plugin-sass`,
+    `gatsby-plugin-advanced-sitemap`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
