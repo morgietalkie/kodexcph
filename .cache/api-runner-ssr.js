@@ -1,6 +1,6 @@
 var plugins = [{
       plugin: require('/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/node_modules/gatsby-plugin-google-analytics/gatsby-ssr'),
-      options: {"plugins":[],"trackingId":"UA-159220266-1"},
+      options: {"plugins":[],"trackingId":"UA-163310645-1"},
     },{
       plugin: require('/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/node_modules/gatsby-plugin-advanced-sitemap/gatsby-ssr'),
       options: {"plugins":[]},

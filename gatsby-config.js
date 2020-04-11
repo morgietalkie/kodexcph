@@ -15,8 +15,62 @@ module.exports = {
     },
 
     `gatsby-plugin-sass`,
-    `gatsby-plugin-advanced-sitemap`,
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-advanced-sitemap`,
+      options: {
+        // 1 query for each data type
+        query: `
+          {
+            allSanityPost {
+              edges {
+                node {
+                  id
+                  slug {
+                    current
+                  }
+                  publishedAt
+                  mainImage {
+                    asset {
+                      fluid {
+                        src
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }`,
+        mapping: {
+          // Each data type can be mapped to a predefined sitemap
+          // Routes can be grouped in one of: posts, tags, authors, pages, or a custom name
+          // The default sitemap - if none is passed - will be pages
+          allGhostPost: {
+            sitemap: `posts`,
+          },
+        },
+        exclude: [
+          `/dev-404-page`,
+          `/mail-send`,
+          `/404`,
+          `/404.html`,
+          `/offline-plugin-app-shell-fallback`,
+          `/my-excluded-page`,
+          /(\/)?hash-\S*/, // you can also pass valid RegExp to exclude internal tags for example
+        ],
+        createLinkInHead: true, // optional: create a link in the `<head>` of your site
+        addUncaughtPages: true, // optional: will fill up pages that are not caught by queries and mapping and list them under `sitemap-pages.xml`
+        additionalSitemaps: [
+          // optional: add additional sitemaps, which are e. g. generated somewhere else, but need to be indexed for this domain
+          {
+            name: `my-other-posts`,
+            url: `/blog/sitemap-posts.xml`,
+          },
+          {
+            url: `https://example.com/sitemap.xml`,
+          },
+        ],
+      },
+    }`gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
