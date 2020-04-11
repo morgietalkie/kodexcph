@@ -15,12 +15,13 @@ module.exports = {
     },
 
     `gatsby-plugin-sass`,
+    `gatsby-plugin-sitemap`,
 
     {
       resolve: `gatsby-plugin-sitemap`,
 
       options: {
-        output: `/sitemap.xml`,
+        output: `/sitemap-post.xml`,
         // Exclude specific pages or groups of pages using glob parameters
         // See: https://github.com/isaacs/minimatch
         exclude: [`/mail-send/`],
@@ -32,7 +33,7 @@ module.exports = {
                 siteUrl
               }
             }
-            allSitePage {
+            allSitePage(filter: {path: {regex: "/blog/"}}) {
               nodes {
                 path
               }

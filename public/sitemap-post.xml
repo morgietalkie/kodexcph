@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://www.kodexcph.com/blog/javascript-seo-server-side-or-client-side-rendering</loc> <changefreq>always</changefreq> <priority>1.0</priority> </url>
+<url> <loc>https://www.kodexcph.com/blog/gatsby-is-static-generated-websites-a-technology-of-the-future</loc> <changefreq>always</changefreq> <priority>1.0</priority> </url>
+<url> <loc>https://www.kodexcph.com/blog/what-is-netlify-and-why-do-we-use-it</loc> <changefreq>always</changefreq> <priority>1.0</priority> </url>
+<url> <loc>https://www.kodexcph.com/blog/first-impressions-of-sanity-as-a-cms-system</loc> <changefreq>always</changefreq> <priority>1.0</priority> </url>
+<url> <loc>https://www.kodexcph.com/blog/top-5-web-design-trends-of-2020</loc> <changefreq>always</changefreq> <priority>1.0</priority> </url>
+<url> <loc>https://www.kodexcph.com/blog/what-is-jamstack-and-why-use-it</loc> <changefreq>always</changefreq> <priority>1.0</priority> </url>
+<url> <loc>https://www.kodexcph.com/blog/what-is-a-statically-generated-website</loc> <changefreq>always</changefreq> <priority>1.0</priority> </url>
+<url> <loc>https://www.kodexcph.com/blog/</loc> <changefreq>always</changefreq> <priority>1.0</priority> </url>
+</urlset>
