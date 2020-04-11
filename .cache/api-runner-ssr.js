@@ -5,6 +5,9 @@ var plugins = [{
       plugin: require('/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
       options: {"plugins":[]},
     },{
+      plugin: require('/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/node_modules/gatsby-plugin-canonical-urls/gatsby-ssr'),
+      options: {"plugins":[],"siteUrl":"https://www.kodexcph.com"},
+    },{
       plugin: require('/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
       options: {"plugins":[],"output":"/sitemap-post.xml","exclude":["/mail-send/"],"query":"\n          {\n            site {\n              siteMetadata {\n                siteUrl\n              }\n            }\n            allSitePage(filter: {path: {regex: \"/blog/\"}}) {\n              nodes {\n                path\n              }\n            }\n        }"},
     },{

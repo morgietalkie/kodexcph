@@ -16,6 +16,12 @@ module.exports = {
 
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://www.kodexcph.com`,
+      },
+    },
 
     {
       resolve: `gatsby-plugin-sitemap`,
