@@ -25,9 +25,7 @@ module.exports = {
               edges {
                 node {
                   id
-                  slug {
-                    current
-                  }
+                  slug 
                   publishedAt
                   mainImage {
                     asset {
