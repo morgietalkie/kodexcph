@@ -66,7 +66,7 @@ module.exports = {
             url: `/blog/sitemap-posts.xml`,
           },
           {
-            url: `https://example.com/sitemap.xml`,
+            url: `https://kodexcph.com/sitemap.xml`,
           },
         ],
       },
