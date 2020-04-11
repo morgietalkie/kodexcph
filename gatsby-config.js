@@ -15,58 +15,41 @@ module.exports = {
     },
 
     `gatsby-plugin-sass`,
+
     {
-      resolve: `gatsby-plugin-advanced-sitemap`,
+      resolve: `gatsby-plugin-sitemap`,
+
       options: {
-        // 1 query for each data type
+        output: `/sitemap.xml`,
+        // Exclude specific pages or groups of pages using glob parameters
+        // See: https://github.com/isaacs/minimatch
+        exclude: [`/mail-send/`],
+
         query: `
           {
-            allSanityPost {
-              edges {
-                node {
-                  id
-                  slug 
-                  publishedAt
-                  mainImage {
-                    asset {
-                      fluid {
-                        src
-                      }
-                    }
-                  }
-                }
+            site {
+              siteMetadata {
+                siteUrl
               }
             }
-          }`,
-        mapping: {
-          // Each data type can be mapped to a predefined sitemap
-          // Routes can be grouped in one of: posts, tags, authors, pages, or a custom name
-          // The default sitemap - if none is passed - will be pages
-          allGhostPost: {
-            sitemap: `posts`,
-          },
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+        }`,
+        resolveSiteUrl: ({ site }) => {
+          //Alternativly, you may also pass in an environment variable (or any location) at the beginning of your `gatsby-config.js`.
+          return site.siteMetadata.siteUrl
         },
-        exclude: [
-          `/dev-404-page`,
-          `/mail-send`,
-          `/404`,
-          `/404.html`,
-          `/offline-plugin-app-shell-fallback`,
-          `/my-excluded-page`,
-          /(\/)?hash-\S*/, // you can also pass valid RegExp to exclude internal tags for example
-        ],
-        createLinkInHead: true, // optional: create a link in the `<head>` of your site
-        addUncaughtPages: true, // optional: will fill up pages that are not caught by queries and mapping and list them under `sitemap-pages.xml`
-        additionalSitemaps: [
-          // optional: add additional sitemaps, which are e. g. generated somewhere else, but need to be indexed for this domain
-          {
-            name: `my-other-posts`,
-            url: `/blog/sitemap-posts.xml`,
-          },
-          {
-            url: `https://kodexcph.com/sitemap.xml`,
-          },
-        ],
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.nodes.map(node => {
+            return {
+              url: `${site.siteMetadata.siteUrl}${node.path}`,
+              changefreq: `always`,
+              priority: 1,
+            }
+          }),
       },
     },
     `gatsby-plugin-react-helmet`,
