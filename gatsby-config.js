@@ -27,7 +27,7 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
 
       options: {
-        output: `/sitemap-post.xml`,
+        output: `/blog/sitemap-post.xml`,
         // Exclude specific pages or groups of pages using glob parameters
         // See: https://github.com/isaacs/minimatch
         exclude: [`/mail-send/`],
