@@ -1,5 +1,4 @@
 import React from "react"
-import Logo from "../images/assets/logo.svg"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 
@@ -21,18 +20,19 @@ const Footer = () => {
         zipCode
         cvr
       }
+
+      allSanityPost(sort: { fields: publishedAt, order: DESC }, limit: 1) {
+        nodes {
+          slug {
+            current
+          }
+        }
+      }
     }
   `)
 
   return (
     <footer>
-      <div className="logo_wrapper">
-        <div className="logo_box">
-          <Logo></Logo>
-          <h4>{data.sanityCompanyInfo.name}</h4>
-        </div>
-      </div>
-
       <div>
         <h5>{data.sanityCompanyInfo.name}</h5>
         <p>CVR: {data.sanityCompanyInfo.cvr}</p>
@@ -56,6 +56,23 @@ const Footer = () => {
         <a href={data.sanityCompanyInfo.linkedin}>LinkedIn</a>
         <a href={data.sanityCompanyInfo.facebook}>Facebook</a>
         <a href={data.sanityCompanyInfo.instagram}>Instagram</a>
+      </div>
+      <div>
+        <h5>Short Cuts</h5>
+        <p>
+          {data.allSanityPost.nodes.map(function(node) {
+            return <Link to={`blog/${node.slug.current}`}>Recent post</Link>
+          })}
+        </p>
+        <Link to="/" className="pageLink">
+          Projects
+        </Link>
+        <Link to="blog" className="pageLink">
+          Insights
+        </Link>
+        <Link to="about" className="pageLink">
+          About
+        </Link>
       </div>
     </footer>
   )

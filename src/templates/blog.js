@@ -1,5 +1,5 @@
 import React from "react"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -7,6 +7,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import BlockContent from "@sanity/block-content-to-react"
 import serializers from "../components/serializers"
+import Footer from "../components/footer"
 
 export const query = graphql`
   query($Slug: String) {
@@ -34,6 +35,28 @@ export const query = graphql`
         asset {
           fluid {
             ...GatsbySanityImageFluid
+          }
+        }
+      }
+    }
+    allSanityPost(
+      limit: 10
+      filter: { slug: { current: { ne: $Slug } } }
+      sort: { fields: publishedAt, order: DESC }
+    ) {
+      edges {
+        node {
+          title
+          publishedAt
+          slug {
+            current
+          }
+          mainImage {
+            asset {
+              fluid(maxWidth: 300) {
+                ...GatsbySanityImageFluid_withWebp
+              }
+            }
           }
         }
       }
@@ -70,7 +93,7 @@ const BLog = props => {
           {props.data.sanityPost.categories.map(function(category) {
             return (
               <li>
-                <p>{category}</p>
+                <p className="post_category">{category}</p>
               </li>
             )
           })}
@@ -84,7 +107,30 @@ const BLog = props => {
             serializers={serializers}
           />
         </div>
+
+        <div className="more_post_wrapper">
+          <h2>More Insights</h2>
+
+          <ol className=" more_post animation  animation--fade-up">
+            {props.data.allSanityPost.edges.map(edge => {
+              return (
+                <Link to={`/blog/${edge.node.slug.current}`}>
+                  <li>
+                    <Img
+                      fluid={edge.node.mainImage.asset.fluid}
+                      onLoad={initiateAnimations}
+                      alt={edge.node.title}
+                    />
+                    <h2 className="link_title">{edge.node.title}</h2>
+                    <h3>Published at: {edge.node.publishedAt}</h3>
+                  </li>
+                </Link>
+              )
+            })}
+          </ol>
+        </div>
       </section>
+      <Footer />
     </Layout>
   )
 }

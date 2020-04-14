@@ -6,6 +6,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import Footer from "../components/footer"
+
 // import RewriteMarkdown from "../components/RewriteMarkdown"
 
 const IndexPage = () => {
@@ -72,6 +74,7 @@ const IndexPage = () => {
           })}
         </ol>
       </section>
+      <Footer />
     </Layout>
   )
 }
@@ -104,19 +107,4 @@ function initiateAnimations() {
   animations.forEach(animation => {
     observer.observe(animation)
   })
-}
-
-function imageIsLoaded() {
-  initiateAnimations()
-  window.addEventListener("scroll", scrollFunctionImage)
-}
-
-function scrollFunctionImage() {
-  if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
-    console.log(document.querySelector(".postImage"))
-
-    document.querySelector(".postImage").classList.add("scaledIMG")
-  } else {
-    document.querySelector(".postImage").classList.remove("scaledIMG")
-  }
 }

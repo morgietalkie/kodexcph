@@ -7,6 +7,8 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import BlockContent from "@sanity/block-content-to-react"
 import serializers from "../components/serializers"
+import Footer from "../components/footer"
+
 // import { func } from "prop-types"
 
 export const query = graphql`
@@ -78,6 +80,7 @@ const Project = props => {
           </div>
         </div>
       </section>
+      <Footer />
     </Layout>
   )
 }

@@ -88,9 +88,9 @@ function scrollFunction() {
 function scrolled() {
   if (window.innerWidth > 1023) {
     if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
-      document.querySelector("header").style.backgroundColor = "#ffffff"
+      document.querySelector("header").classList.add("header_background")
     } else {
-      document.querySelector("header").style.backgroundColor = "#ffffff00"
+      document.querySelector("header").classList.remove("header_background")
     }
   }
 }

@@ -9,13 +9,13 @@ var plugins = [{
       options: {"plugins":[],"siteUrl":"https://www.kodexcph.com"},
     },{
       plugin: require('/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
-      options: {"plugins":[],"output":"/sitemap-post.xml","exclude":["/mail-send/"],"query":"\n          {\n            site {\n              siteMetadata {\n                siteUrl\n              }\n            }\n            allSitePage(filter: {path: {regex: \"/blog/\"}}) {\n              nodes {\n                path\n              }\n            }\n        }"},
+      options: {"plugins":[],"output":"/blog/sitemap-post.xml","exclude":["/mail-send/"],"query":"\n          {\n            site {\n              siteMetadata {\n                siteUrl\n              }\n            }\n            allSitePage(filter: {path: {regex: \"/blog/\"}}) {\n              nodes {\n                path\n              }\n            }\n        }"},
     },{
       plugin: require('/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
       options: {"plugins":[]},
     },{
       plugin: require('/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
-      options: {"plugins":[],"name":"gatsby-starter-default","short_name":"starter","start_url":"/","background_color":"#663399","theme_color":"#663399","display":"minimal-ui","icon":"src/images/company-logo.png"},
+      options: {"plugins":[],"name":"gatsby-starter-default","short_name":"starter","start_url":"/","background_color":"#663399","theme_color":"#663399","display":"minimal-ui","icon":"src/images/company-logo.svg"},
     },{
       plugin: require('/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/node_modules/gatsby-source-sanity/gatsby-ssr'),
       options: {"plugins":[],"apiURL":"http://localhost:3333","projectId":"j7i4hfvy","dataset":"production"},

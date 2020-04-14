@@ -91,3 +91,117 @@
     }
   }
 }
+
+// More post
+#blogPost {
+  .more_post_wrapper {
+    .link_title {
+      margin-top: 10px;
+      color: var(--dark-color);
+      text-decoration: none;
+      text-align: left;
+      font-size: 18px;
+      margin-bottom: 0;
+      padding: 10px;
+    }
+    h3 {
+      color: var(--dark-color);
+      text-decoration: none;
+      text-align: left;
+      font-size: 10px;
+      opacity: 0.8;
+      margin-top: auto;
+      padding: 10px;
+      padding-top: 0;
+      margin-bottom: 0;
+    }
+
+    a {
+      text-decoration: none;
+      border: 1px solid var(--light-color);
+      transition: opacity transform 1s;
+    }
+
+    a:hover {
+      box-shadow: #0000000a 0px 6px 16px 0px;
+      transition: box-shadow 0.2s;
+    }
+    ol {
+      margin: 0;
+      margin-bottom: 100px;
+
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(10, 1fr);
+      overflow: scroll;
+
+      li {
+        list-style: none;
+        position: relative;
+        margin-bottom: 0;
+        background-color: unset;
+        margin: 0;
+        padding: 0;
+
+        .gatsby-image-wrapper {
+          height: 200px;
+          width: 320px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 764px) {
+  #blogPost {
+    .more_post_wrapper {
+      ol {
+        display: grid;
+
+        li {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          background-color: unset;
+
+          .gatsby-image-wrapper {
+            width: 320px;
+
+            height: 200px;
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #blogPost {
+    .more_post_wrapper {
+      margin-top: 80px;
+      ol {
+        display: grid;
+        grid-template-rows: auto;
+        width: auto;
+        position: relative;
+
+        li {
+          .gatsby-image-wrapper {
+            width: 320px;
+            display: flex;
+            background-color: unset;
+
+            img {
+              transition: 0.2s !important;
+              position: absolute !important;
+              left: 50% !important;
+              top: 50% !important;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import serializers from "../components/serializers"
+import Footer from "../components/footer"
 
 import Typewriter from "typewriter-effect"
 import BlockContent from "@sanity/block-content-to-react"
@@ -93,6 +94,7 @@ const About = () => {
           serializers={serializers}
         />
       </section>
+      <Footer />
     </Layout>
   )
 }

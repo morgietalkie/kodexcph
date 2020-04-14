@@ -68,10 +68,20 @@ footer {
 @media only screen and (min-width: 768px) {
   footer {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 0 5%;
+
     padding-bottom: 80px;
+
+    justify-content: center;
     .logo_wrapper {
       top: 80px;
       left: 40px;
+    }
+
+    div {
+      padding: 0 10px;
+      width: fit-content;
+      margin: 0 auto;
     }
 
     h5 {
