@@ -26,7 +26,7 @@ export const query = graphql`
         corporate_title
         image {
           asset {
-            fluid(maxWidth: 100) {
+            fluid(maxWidth: 200) {
               ...GatsbySanityImageFluid
             }
           }
@@ -68,7 +68,7 @@ export const query = graphql`
           }
           mainImage {
             asset {
-              fluid(maxWidth: 300) {
+              fluid(maxWidth: 200) {
                 ...GatsbySanityImageFluid_withWebp
               }
             }
@@ -79,12 +79,6 @@ export const query = graphql`
   }
 `
 
-const divStyle = {
-  height: "200px",
-  width: "200px",
-  objectPosition: "10% 10%",
-}
-
 const BLog = (props) => {
   return (
     <Layout>
@@ -94,26 +88,27 @@ const BLog = (props) => {
         image={props.data.sanityPost.mainImage.asset.fluid.src}
       />
       <section id="blogPost">
+        <ol>
+          {props.data.sanityPost.categories.map(function (category) {
+            return (
+              <li>
+                <p className="post_category">{category}</p> <span>+</span>
+              </li>
+            )
+          })}
+        </ol>
         <h1>{props.data.sanityPost.title}</h1>
-
-        <div className="blogPostInfo">
-          <p>Published: {props.data.sanityPost.publishedAt}</p>
-        </div>
 
         <Img
           onLoad={initiateAnimations}
           fluid={props.data.sanityPost.mainImage.asset.fluid}
           alt={props.data.sanityPost.title}
         ></Img>
-        <ol>
-          {props.data.sanityPost.categories.map(function (category) {
-            return (
-              <li>
-                <p className="post_category">{category}</p>
-              </li>
-            )
-          })}
-        </ol>
+
+        <p className="publish_date">
+          Published: {props.data.sanityPost.publishedAt}
+        </p>
+
         <div>
           <BlockContent
             className="allBlockContent"
@@ -152,12 +147,16 @@ const BLog = (props) => {
           onLoad={initiateAnimations}
           fluid={props.data.sanityPost.author.image.asset.fluid}
           alt={props.data.sanityPost.title}
-          style={divStyle}
+          imgStyle={{
+            objectPosition: `${props.data.sanityPost.author.image.hotspot.x}%  ${props.data.sanityPost.author.image.hotspot.y}%`,
+          }}
         ></Img>
         <p className="author">Author</p>
         <p className="author_name"> {props.data.sanityPost.author.name}</p>
         <p className="author_position">Creative Director</p>
-        <div className="whitebox"></div>
+
+        <button className="getInTouch">Contact</button>
+        <div className="white_box"></div>
       </div>
       <Footer />
     </Layout>
