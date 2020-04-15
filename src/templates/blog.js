@@ -154,7 +154,10 @@ const BLog = (props) => {
           alt={props.data.sanityPost.title}
           style={divStyle}
         ></Img>
-        <p>Written by: {props.data.sanityPost.author.name}</p>
+        <p className="author">Author</p>
+        <p className="author_name"> {props.data.sanityPost.author.name}</p>
+        <p className="author_position">Creative Director</p>
+        <div className="whitebox"></div>
       </div>
       <Footer />
     </Layout>
