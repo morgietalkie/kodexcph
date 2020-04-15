@@ -155,7 +155,9 @@ const BLog = (props) => {
         <p className="author_name"> {props.data.sanityPost.author.name}</p>
         <p className="author_position">Creative Director</p>
 
-        <button className="getInTouch">Contact</button>
+        <button onClick={openMenu} className="getInTouch">
+          Contact
+        </button>
         <div className="white_box"></div>
       </div>
       <Footer />
@@ -202,4 +204,25 @@ function initiateAnimations() {
   animations.forEach((animation) => {
     observer.observe(animation)
   })
+}
+
+function openMenu(e) {
+  document.querySelector(".menu").classList.toggle("open_menu")
+  document.querySelector(".menu").classList.toggle("menu_slide")
+}
+
+console.log()
+
+function scrollFunction() {
+  window.addEventListener("scroll", scrolled)
+}
+
+function scrolled() {
+  if (window.innerWidth > 1023) {
+    if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+      document.querySelector("header").classList.add("header_background")
+    } else {
+      document.querySelector("header").classList.remove("header_background")
+    }
+  }
 }

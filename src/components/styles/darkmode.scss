@@ -26,6 +26,19 @@
     background: rgba(0, 0, 0, 0.63);
   }
 
+  .call_to_action {
+    border: white 4px solid;
+
+    button {
+      background-color: white;
+      color: black;
+    }
+
+    .white_box {
+      background-color: black;
+    }
+  }
+
   header {
     background-color: black;
 
