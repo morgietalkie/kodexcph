@@ -67,7 +67,29 @@
   blockquote {
     background-color: var(--light-color);
     padding: 30px;
+    padding-top: 60px;
     margin: 0;
+    margin-bottom: 18px;
+
+    .quote_author {
+      font-size: 14px;
+      line-height: 14px;
+      text-align: right;
+      position: relative;
+      margin: 0;
+      margin-top: 10px;
+      font-family: var(--secondary-font);
+      font-style: initial;
+    }
+    .quote_author_position {
+      font-size: 12px;
+      line-height: 16px;
+
+      position: relative;
+      text-align: right;
+      position: relative;
+      margin: 0;
+    }
   }
 
   .more_project_wrapper {

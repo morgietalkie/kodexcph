@@ -23,6 +23,7 @@ export const query = graphql`
       publishedAt
       author {
         name
+        primaryTitle
         corporate_title
         image {
           asset {
@@ -153,7 +154,9 @@ const BLog = (props) => {
         ></Img>
         <p className="author">Author</p>
         <p className="author_name"> {props.data.sanityPost.author.name}</p>
-        <p className="author_position">Creative Director</p>
+        <p className="author_position">
+          {props.data.sanityPost.author.primaryTitle}
+        </p>
 
         <button onClick={openMenu} className="getInTouch">
           Contact

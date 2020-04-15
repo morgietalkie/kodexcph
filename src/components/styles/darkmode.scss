@@ -63,6 +63,16 @@
   ul {
     color: white;
   }
+  #projectPost,
+  #blogPost {
+    blockquote {
+      background-color: var(--dark-color);
+    }
+  }
+  .quote_author,
+  .quote_author_position {
+    color: var(--semi-dark);
+  }
 
   .pageLink {
     svg > path {
