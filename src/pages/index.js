@@ -59,11 +59,14 @@ const IndexPage = () => {
 
         <h1>Kodex</h1>
 
-        <div className="horizontal-scroll-wrapper squares ">
+        <div className="horizontal-scroll-wrapper squares">
           {data.allSanityProjects.edges.map(function (edge, i) {
             return (
               <Link className="link_wrappers" to={edge.node.slug.current}>
-                <div className="scrolls" key={i}>
+                <div
+                  className="scrolls animation  animation--fade-in-mobile"
+                  key={i}
+                >
                   <h2 className="project_title" key={i}>
                     {edge.node.title}
                   </h2>
@@ -104,6 +107,7 @@ function detectScroll() {
   if (window.innerWidth > 1024) {
     document.querySelector("body").addEventListener("wheel", scrolled)
   }
+  initiateAnimations()
 }
 
 function scrolled(event) {
@@ -149,4 +153,32 @@ function nextSlide() {
     firstScroll.parentNode.removeChild(firstScroll)
     detectScroll()
   }, 1500)
+}
+
+function initiateAnimations() {
+  // allChildrenElements.classList.add("animation")
+  // allChildrenElements.classList.add("animation--fade-up")
+
+  // callback function to do animations
+  const scrollImations = (entries, observer) => {
+    entries.forEach((entry) => {
+      // only do animation if the element is fully on screen
+      if (entry.isIntersecting && entry.intersectionRatio >= 0) {
+        entry.target.classList.add("animation--visible")
+      } else {
+      }
+    })
+  }
+
+  // create the observer
+  const options = {
+    threshold: 0.2,
+  }
+  const observer = new IntersectionObserver(scrollImations, options)
+
+  // target the elements to be observed
+  const animations = document.querySelectorAll(".animation")
+  animations.forEach((animation) => {
+    observer.observe(animation)
+  })
 }

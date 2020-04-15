@@ -1,5 +1,6 @@
 import React from "react"
 // import { Link } from "gatsby"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -38,10 +39,32 @@ export const query = graphql`
         }
       }
     }
+    allSanityProjects(
+      limit: 3
+      filter: { slug: { current: { ne: $Slug } } }
+      sort: { order: DESC, fields: publishedAt }
+    ) {
+      edges {
+        node {
+          title
+          publishedAt
+          slug {
+            current
+          }
+          mainImage {
+            asset {
+              fluid(maxWidth: 200) {
+                ...GatsbySanityImageFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `
 
-const Project = props => {
+const Project = (props) => {
   return (
     <Layout>
       <SEO
@@ -58,12 +81,17 @@ const Project = props => {
         ></Img>
 
         <div className="content_wrapper">
-          <h1>{props.data.sanityProjects.title}</h1>
           <ol>
-            {props.data.sanityProjects.categories.map(function(category) {
-              return <li>{category}</li>
+            {props.data.sanityProjects.categories.map(function (category) {
+              return (
+                <li>
+                  <p>{category} </p>
+                  <span>+</span>
+                </li>
+              )
             })}
           </ol>
+          <h1>{props.data.sanityProjects.title}</h1>
 
           <a href={props.data.sanityProjects.websiteUrl} className="visitSite">
             Visit site
@@ -78,8 +106,28 @@ const Project = props => {
               className="allBlockContent"
             />
           </div>
+
+          <div className="more_project_wrapper">
+            <h2>More Projects</h2>
+
+            <ol className=" more_project animation  animation--fade-up">
+              {props.data.allSanityProjects.edges.map((edge) => {
+                return (
+                  <Link to={`/${edge.node.slug.current}`}>
+                    <li>
+                      <Img
+                        fluid={edge.node.mainImage.asset.fluid}
+                        alt={edge.node.title}
+                      />
+                    </li>
+                  </Link>
+                )
+              })}
+            </ol>
+          </div>
         </div>
       </section>
+
       <Footer />
     </Layout>
   )
@@ -102,11 +150,9 @@ function initiateAnimations() {
   // allChildrenElements.classList.add("animation")
   // allChildrenElements.classList.add("animation--fade-up")
 
-  console.log(allBlockContent.children)
-
   // callback function to do animations
   const scrollImations = (entries, observer) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       // only do animation if the element is fully on screen
       if (entry.isIntersecting && entry.intersectionRatio >= 0) {
         entry.target.classList.add("animation--visible")
@@ -123,7 +169,7 @@ function initiateAnimations() {
 
   // target the elements to be observed
   const animations = document.querySelectorAll(".animation")
-  animations.forEach(animation => {
+  animations.forEach((animation) => {
     observer.observe(animation)
   })
 }
@@ -135,8 +181,6 @@ function imageIsLoaded() {
 
 function scrollFunctionImage() {
   if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
-    console.log(document.querySelector(".postImage"))
-
     document.querySelector(".postImage").classList.add("scaledIMG")
   } else {
     document.querySelector(".postImage").classList.remove("scaledIMG")

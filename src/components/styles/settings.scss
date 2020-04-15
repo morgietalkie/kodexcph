@@ -20,6 +20,9 @@ svg {
 .animation--fade-in {
   opacity: 0;
 }
+.animation--fade-in-mobile {
+  opacity: 0;
+}
 
 .animation--fade-up.animation--visible {
   opacity: 1;
@@ -28,6 +31,11 @@ svg {
 }
 
 .animation--fade-in.animation--visible {
+  opacity: 1;
+  transition: 1s;
+}
+
+.animation--fade-in-mobile.animation--visible {
   opacity: 1;
   transition: 1s;
 }
@@ -40,5 +48,10 @@ svg {
   .scaledIMG {
     transform: scale3d(0.96, 0.96, 1);
     transition: 0.2s;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .animation--fade-in-mobile {
+    opacity: 1;
   }
 }
