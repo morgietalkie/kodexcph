@@ -144,7 +144,7 @@ const BLog = (props) => {
 
       <div className="call_to_action">
         <Img
-          onLoad={initiateAnimations}
+          onLoad={callToActionLoaded}
           fluid={props.data.sanityPost.author.image.asset.fluid}
           alt={props.data.sanityPost.title}
           imgStyle={{
@@ -223,6 +223,23 @@ function scrolled() {
       document.querySelector("header").classList.add("header_background")
     } else {
       document.querySelector("header").classList.remove("header_background")
+    }
+  }
+}
+
+function callToActionLoaded() {
+  window.addEventListener("scroll", scrolledToBottom)
+}
+
+function scrolledToBottom() {
+  if (window.innerWidth > 1024) {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.offsetHeight - 300
+    ) {
+      document.querySelector(".call_to_action").style.opacity = "0"
+    } else {
+      document.querySelector(".call_to_action").style.opacity = "1"
     }
   }
 }
