@@ -26,7 +26,7 @@ const IndexPage = () => {
             }
             mainImage {
               asset {
-                fluid {
+                fluid(maxWidth: 550) {
                   ...GatsbySanityImageFluid
                 }
               }
@@ -73,6 +73,7 @@ const IndexPage = () => {
                     key={i}
                     fluid={edge.node.mainImage.asset.fluid}
                     onLoad={detectScroll}
+                    loading="eager"
                   />
                   <div className="gatsby-image-wrapper-overlay"></div>
                 </div>
@@ -106,9 +107,10 @@ function detectScroll() {
 }
 
 function scrolled(event) {
+  console.log(event.deltaY)
   if (event.deltaY > 0 || event.deltaX > 0) {
     document.querySelector("body").removeEventListener("wheel", scrolled)
-    document.querySelectorAll("project_image").forEach((image) => {
+    document.querySelectorAll(".project_image").forEach((image) => {
       image.onLoad = null
     })
 
