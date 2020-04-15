@@ -1,6 +1,10 @@
 #projectPost {
   margin-bottom: 50px;
 
+  p {
+    min-height: 18px;
+  }
+
   .content_wrapper {
     display: grid;
     width: 90vw;
