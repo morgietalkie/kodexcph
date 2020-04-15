@@ -81,6 +81,7 @@
 
     .additional_text {
       display: block;
+      pointer-events: none;
       position: absolute;
       opacity: 0;
       top: 0;
@@ -151,9 +152,10 @@
     }
     .gatsby-image-wrapper-overlay {
       background: rgba(255, 255, 255, 0.797);
-      width: 550px;
-      height: 367.125px;
-      bottom: 25px;
+      width: 600px;
+      height: 400.5px;
+      bottom: 0px;
+      left: 0;
       position: absolute;
       transition: 0.4s;
       pointer-events: none;
@@ -174,7 +176,6 @@
       position: relative;
       display: block;
       scroll-snap-align: start;
-      padding: 25px;
 
       width: 600px;
       margin-bottom: 0;
@@ -185,17 +186,21 @@
       cursor: default;
 
       h2 {
-        margin-top: 100px;
         font-size: 45px;
         opacity: 0;
         font-weight: bold;
       }
     }
     .link_wrappers {
+      margin-top: 100px;
+      padding: 25px;
+      pointer-events: none;
+
       transition: 0.8s;
     }
     .link_wrappers:nth-child(1) {
       opacity: 1;
+      pointer-events: auto;
 
       h2 {
         opacity: 1;

@@ -58,9 +58,9 @@ const Footer = () => {
         <a href={data.sanityCompanyInfo.instagram}>Instagram</a>
       </div>
       <div>
-        <h5>Short Cuts</h5>
+        <h5>Shortcuts</h5>
         <p>
-          {data.allSanityPost.nodes.map(function(node) {
+          {data.allSanityPost.nodes.map(function (node) {
             return <Link to={`blog/${node.slug.current}`}>Recent post</Link>
           })}
         </p>

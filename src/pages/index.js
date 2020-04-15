@@ -130,6 +130,7 @@ function nextSlide() {
     link.querySelector(".gatsby-image-wrapper-overlay").style.opacity = "1"
     link.querySelector("h2").style.opacity = "0"
     link.querySelector(".additional_text").style.opacity = "0"
+    link.style.pointerEvents = "none"
   })
 
   slideWrapper.children[1].querySelector(
@@ -137,7 +138,8 @@ function nextSlide() {
   ).style.opacity = "0"
   slideWrapper.children[1].querySelector("h2").style.opacity = "1"
   slideWrapper.children[1].querySelector(".additional_text").style.opacity = "1"
-  slideWrapper.style.marginLeft = "-600px"
+  slideWrapper.children[1].style.pointerEvents = "auto"
+  slideWrapper.style.marginLeft = "-650px"
   firstcln = firstScroll.cloneNode(true)
   slideWrapper.appendChild(firstcln)
 

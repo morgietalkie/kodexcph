@@ -23,7 +23,22 @@ export const query = graphql`
       publishedAt
       author {
         name
+        corporate_title
+        image {
+          asset {
+            fluid(maxWidth: 100) {
+              ...GatsbySanityImageFluid
+            }
+          }
+          hotspot {
+            height
+            width
+            x
+            y
+          }
+        }
       }
+
       categories
       _rawBody
       body {
@@ -33,7 +48,7 @@ export const query = graphql`
       }
       mainImage {
         asset {
-          fluid {
+          fluid(maxWidth: 800) {
             ...GatsbySanityImageFluid
           }
         }
@@ -64,7 +79,13 @@ export const query = graphql`
   }
 `
 
-const BLog = props => {
+const divStyle = {
+  height: "200px",
+  width: "200px",
+  objectPosition: "10% 10%",
+}
+
+const BLog = (props) => {
   return (
     <Layout>
       <SEO
@@ -76,12 +97,7 @@ const BLog = props => {
         <h1>{props.data.sanityPost.title}</h1>
 
         <div className="blogPostInfo">
-          <span>|</span>
-
-          <p>Written by: {props.data.sanityPost.author.name}</p>
-          <span>|</span>
           <p>Published: {props.data.sanityPost.publishedAt}</p>
-          <span>|</span>
         </div>
 
         <Img
@@ -90,7 +106,7 @@ const BLog = props => {
           alt={props.data.sanityPost.title}
         ></Img>
         <ol>
-          {props.data.sanityPost.categories.map(function(category) {
+          {props.data.sanityPost.categories.map(function (category) {
             return (
               <li>
                 <p className="post_category">{category}</p>
@@ -112,7 +128,7 @@ const BLog = props => {
           <h2>More Insights</h2>
 
           <ol className=" more_post animation  animation--fade-up">
-            {props.data.allSanityPost.edges.map(edge => {
+            {props.data.allSanityPost.edges.map((edge) => {
               return (
                 <Link to={`/blog/${edge.node.slug.current}`}>
                   <li>
@@ -130,6 +146,16 @@ const BLog = props => {
           </ol>
         </div>
       </section>
+
+      <div className="call_to_action">
+        <Img
+          onLoad={initiateAnimations}
+          fluid={props.data.sanityPost.author.image.asset.fluid}
+          alt={props.data.sanityPost.title}
+          style={divStyle}
+        ></Img>
+        <p>Written by: {props.data.sanityPost.author.name}</p>
+      </div>
       <Footer />
     </Layout>
   )
@@ -154,7 +180,7 @@ function initiateAnimations() {
 
   // callback function to do animations
   const scrollImations = (entries, observer) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       // only do animation if the element is fully on screen
       if (entry.isIntersecting && entry.intersectionRatio >= 0) {
         entry.target.classList.add("animation--visible")
@@ -171,7 +197,7 @@ function initiateAnimations() {
 
   // target the elements to be observed
   const animations = document.querySelectorAll(".animation")
-  animations.forEach(animation => {
+  animations.forEach((animation) => {
     observer.observe(animation)
   })
 }
