@@ -91,6 +91,8 @@ const IndexPage = () => {
             )
           })}
         </div>
+
+        <div className="scroll_block"></div>
       </section>
     </Layout>
   )
@@ -104,28 +106,33 @@ let lastClient = ""
 let lastcln = ""
 
 function detectScroll() {
-  if (window.innerWidth > 1024) {
+  if (window.innerWidth > 1024 || window.innerWidth === 1024) {
     document.querySelector("body").addEventListener("wheel", scrolled)
+    document
+      .querySelector("body")
+      .addEventListener("touchstart", nextSlide, false)
   }
+
   initiateAnimations()
 }
 
 function scrolled(event) {
-  console.log(event.deltaY)
   if (event.deltaY > 0 || event.deltaX > 0) {
     document.querySelector("body").removeEventListener("wheel", scrolled)
     document.querySelectorAll(".project_image").forEach((image) => {
       image.onLoad = null
     })
 
-    console.log(event)
     nextSlide()
   }
 }
 
 function nextSlide() {
+  document
+    .querySelector("body")
+    .removeEventListener("touchstart", nextSlide, false)
+
   let slideWrapper = document.querySelector(".horizontal-scroll-wrapper")
-  console.log(slideWrapper)
   let firstScroll = slideWrapper.firstChild
 
   slideWrapper.style.transition = "0.8s"
