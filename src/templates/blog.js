@@ -241,8 +241,10 @@ function scrolledToBottom() {
       document.body.offsetHeight - 300
     ) {
       document.querySelector(".call_to_action").style.opacity = "0"
+      document.querySelector(".call_to_action").style.pointerEvents = "none"
     } else {
       document.querySelector(".call_to_action").style.opacity = "1"
+      document.querySelector(".call_to_action").style.pointerEvents = "auto"
     }
   }
 }

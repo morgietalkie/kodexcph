@@ -74,7 +74,11 @@
       display: flex;
 
       span {
-        margin: 0 12px;
+        margin: 0 10px;
+        font-size: 12px;
+        font-weight: bold;
+
+        align-self: center;
         color: var(--semi-dark);
       }
     }
