@@ -45,6 +45,9 @@ const IndexPage = () => {
         title
         _id
       }
+      sanityCompanyInfo {
+        slogan
+      }
     }
   `)
 
@@ -57,7 +60,7 @@ const IndexPage = () => {
       <section id="index">
         <Logo />
 
-        <h1>Kodex</h1>
+        <h1>{data.sanityCompanyInfo.slogan}</h1>
 
         <div className="horizontal-scroll-wrapper squares">
           {data.allSanityProjects.edges.map(function (edge, i) {
@@ -148,15 +151,16 @@ function nextSlide() {
     ".gatsby-image-wrapper-overlay"
   ).style.opacity = "0"
   slideWrapper.children[1].querySelector("h2").style.opacity = "1"
-  slideWrapper.children[1].querySelector(".additional_text").style.opacity = "1"
+  slideWrapper.children[1].querySelector(".additional_text").style.opacity =
+    "0.2"
   slideWrapper.children[1].style.pointerEvents = "auto"
-  slideWrapper.style.marginLeft = "-650px"
+  slideWrapper.style.marginLeft = "-635px"
   firstcln = firstScroll.cloneNode(true)
   slideWrapper.appendChild(firstcln)
 
   setTimeout(() => {
     slideWrapper.style.transition = "0s"
-    slideWrapper.style.marginLeft = "0"
+    slideWrapper.style.marginLeft = "15px"
     firstScroll.parentNode.removeChild(firstScroll)
     detectScroll()
   }, 1500)
