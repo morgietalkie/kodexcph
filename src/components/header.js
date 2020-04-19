@@ -49,7 +49,7 @@ class Header extends React.Component {
             <span>Kodex</span>
 
             <a href="tel:+45 50 99 99 95">+45 50 99 99 95</a>
-            <a href="mailto:contact@kodexcph.com">contact@kodexcph.com</a>
+            <a href="mailto:contact@kodexcph.com">frederik@kodexcph.com</a>
 
             <h2>Contact us</h2>
 
