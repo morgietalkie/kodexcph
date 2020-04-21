@@ -12,6 +12,10 @@
   }
   .gatsby-image-wrapper {
     transition: 0.2s;
+
+    img {
+      object-position: bottom !important;
+    }
   }
 
   h1 {
