@@ -106,7 +106,7 @@ function checkSite() {
       window.location.href != "http://localhost:8000/" ||
       window.location.href != "https://kodexcph.com/"
     ) {
-      document.querySelector("html").style.overflow = "auto"
+      document.querySelector("html").style.overflow = "hidden auto"
     }
   }
 }
