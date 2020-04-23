@@ -154,13 +154,13 @@ function nextSlide() {
   slideWrapper.children[1].querySelector(".additional_text").style.opacity =
     "0.8"
   slideWrapper.children[1].style.pointerEvents = "auto"
-  slideWrapper.style.marginLeft = "-635px"
+  slideWrapper.style.marginLeft = "-610px"
   firstcln = firstScroll.cloneNode(true)
   slideWrapper.appendChild(firstcln)
 
   setTimeout(() => {
     slideWrapper.style.transition = "0s"
-    slideWrapper.style.marginLeft = "15px"
+    slideWrapper.style.marginLeft = "40px"
     firstScroll.parentNode.removeChild(firstScroll)
     detectScroll()
   }, 1500)

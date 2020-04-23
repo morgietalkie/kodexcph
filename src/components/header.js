@@ -14,7 +14,7 @@ class Header extends React.Component {
     super(props)
   }
   componentDidMount() {
-    console.log("Component did mount")
+    checkSite()
     scrollFunction()
   }
 
@@ -92,5 +92,13 @@ function scrolled() {
     } else {
       document.querySelector("header").classList.remove("header_background")
     }
+  }
+}
+
+function checkSite() {
+  if (window.location.href === "http://localhost:8000/") {
+    document.querySelector("html").style.overflow = "hidden"
+  } else if (window.location.href != "http://localhost:8000/") {
+    document.querySelector("html").style.overflow = "auto"
   }
 }
