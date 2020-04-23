@@ -96,15 +96,17 @@ function scrolled() {
 }
 
 function checkSite() {
-  if (
-    window.location.href === "http://localhost:8000/" ||
-    window.location.href === "https://kodexcph.com/"
-  ) {
-    document.querySelector("html").style.overflow = "hidden"
-  } else if (
-    window.location.href != "http://localhost:8000/" ||
-    window.location.href != "https://kodexcph.com/"
-  ) {
-    document.querySelector("html").style.overflow = "auto"
+  if (window.innerWidth > 1023) {
+    if (
+      window.location.href === "http://localhost:8000/" ||
+      window.location.href === "https://kodexcph.com/"
+    ) {
+      document.querySelector("html").style.overflow = "hidden"
+    } else if (
+      window.location.href != "http://localhost:8000/" ||
+      window.location.href != "https://kodexcph.com/"
+    ) {
+      document.querySelector("html").style.overflow = "auto"
+    }
   }
 }
