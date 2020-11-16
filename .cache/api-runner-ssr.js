@@ -18,7 +18,7 @@ var plugins = [{
       options: {"plugins":[],"name":"gatsby-starter-default","short_name":"starter","start_url":"/","background_color":"#663399","theme_color":"#663399","display":"minimal-ui","icon":"src/images/company-logo.svg"},
     },{
       plugin: require('/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/node_modules/gatsby-source-sanity/gatsby-ssr'),
-      options: {"plugins":[],"apiURL":"http://localhost:3333","projectId":"j7i4hfvy","dataset":"production"},
+      options: {"plugins":[],"apiURL":"http://localhost:3333","projectId":"j7i4hfvy","dataset":"production","overlayDrafts":true,"watchMode":true},
     },{
       plugin: require('/Users/Morgan/Documents/webdev/kodex_cph/kodex-cph/node_modules/gatsby-plugin-prefetch-google-fonts/gatsby-ssr'),
       options: {"plugins":[],"fonts":[{"family":"Merriweather","variants":["300","300i","400","400i","700","700i","900","900i"]},{"family":"Montserrat","variants":["100","100i","200","200i","300","300i","400","400i","500","500i","600","600i","700","700i","800","800i","900","900i"]}]},

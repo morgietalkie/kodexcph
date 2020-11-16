@@ -50,7 +50,7 @@ module.exports = {
           return site.siteMetadata.siteUrl
         },
         serialize: ({ site, allSitePage }) =>
-          allSitePage.nodes.map(node => {
+          allSitePage.nodes.map((node) => {
             return {
               url: `${site.siteMetadata.siteUrl}${node.path}`,
               changefreq: `always`,
@@ -88,6 +88,9 @@ module.exports = {
         apiURL: `http://localhost:3333`,
         projectId: "j7i4hfvy",
         dataset: "production",
+        overlayDrafts: true,
+        watchMode: true,
+        token: process.env.SANITY_TOKEN,
       },
     },
     {
