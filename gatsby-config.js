@@ -102,12 +102,13 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts-v2`,
       options: {
         fonts: [
           {
-            family: `Merriweather`,
-            variants: [
+            family: "Merriweather",
+            variable: true,
+            weights: [
               `300`,
               `300i`,
               `400`,
@@ -119,8 +120,9 @@ module.exports = {
             ],
           },
           {
-            family: `Montserrat`,
-            variants: [
+            family: "Montserrat",
+            variable: true,
+            weights: [
               `100`,
               `100i`,
               `200`,
@@ -144,6 +146,7 @@ module.exports = {
         ],
       },
     },
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
